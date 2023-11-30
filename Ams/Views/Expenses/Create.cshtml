@@ -1,0 +1,53 @@
+﻿@model Ams.ViewModels.ExpensesVm
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+
+    <div>
+        <h3 style="text-align:center;">Record Expenses</h3>
+        <table class="table table-bordered" id="copy_tbl">
+            <thead>
+                <tr class="table-primary" style="text-align:center;">
+                    <th style="width:20%;">Expenses Ledger</th>
+                    <th style="width:20%;">Cash/Bank</th>
+                    <th>Amount</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (var i = 0; i < 5; i++)
+                {
+                    <tr>
+                        <td>
+                            <select class="typeahead form-control" name="ExpensesLedger" asp-items="@Model.LegerSelectList()">
+                                <option value="">Select</option>
+                            </select>
+                        </td>
+
+                        <td>
+                            <select class="typeahead form-control" name="ledger_id" asp-items="@Model.LegerSelectList()">
+                                <option value="">Select</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="amount">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="remarks">
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <button type="submit" name="save" class="btn btn-primary btn-sm"><i class="fa fa-save"></i> Save</button>
+            </div>
+        </div>
+    </div>
+
+</form>

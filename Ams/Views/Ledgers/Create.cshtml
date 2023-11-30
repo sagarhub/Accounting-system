@@ -1,0 +1,54 @@
+﻿@model Ams.View_Models.LedgerVm
+
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+ <form method="post">
+        <h3 style="color: green; text-align:center; margin-top:3px; margin-top:5px;">Create Ledger</h3>
+    <table class="table table-bordered" id="copy_tbl">
+        <thead>
+            <tr class="table-primary" style="text-align:center;">
+                <th style="width:20%;">
+           Parent Group
+           
+           </th>
+           <th>
+           Code
+           
+                </th>
+                <th>
+        Ledger Name
+           </th>
+            </tr>
+        </thead>
+
+        <tbody>
+             @for(var i = 0;i<5; i++)
+            {
+                <tr>
+                    <td>
+                        <select class="typeahead form-control" name="Parent_ledgerId" asp-asp-items="@Model.ParentGroupList()">
+                            <option value="">select</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input class="form-control" type="text" name="code" >
+                    </td>
+                    <td>
+                        <input class="form-control" style="margin-bottom: 10px;" type="text" name="Ledger_name" >
+                        </td>
+
+                </tr>
+            }
+
+        </tbody>
+        </table>
+    <button class="btn btn-primary btn-sm" type="submit" style="cursor:pointer;">Register</button>
+    
+</form>

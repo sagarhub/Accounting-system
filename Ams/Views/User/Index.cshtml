@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Ams.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 style="margin-top:20px;">User Details</h3>
+
+<p>
+    <button><a asp-action="Create">Create New</a></button>
+</p>
+<table class="table table-striped" >
+    <thead>
+        <tr>
+            <th style="border-collapse:collapse;">
+                Name
+            </th>
+            
+            <th>
+                Contact
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Username
+            </th>
+            <th>
+                Actions
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+           
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

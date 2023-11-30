@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Ams</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Ams.styles.css" asp-append-version="true" />
+
+    <link rel="stylesheet" href="~/css/Select2.css" />
+
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#2e73a5;">
+            <div class="container-fluid">
+                <a style="font-size: 20px;;" class="navbar-brand" href="#">AMS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+
+                        <li class="nav-item">
+                            <a style="margin-left: 15px;" class="nav-link active" href="">
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ledger</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-controller="Ledgers" asp-action="Create">Add Ledger </a>
+                                <a class="dropdown-item" asp-controller="Ledgers" asp-action="Index">Ledger Details</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Bank</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-controller="Bank" asp-action="Create">Add Bank</a>
+                                <a class="dropdown-item" asp-controller="Bank" asp-action="Index">Bank Details</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Income</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-controller="Incomes" asp-action="Create">Record Income</a>
+                                <a class="dropdown-item" asp-controller="Incomes" asp-action="Index">Income Report</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Expenses</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item">Record Expenses</a>
+                                <a class="dropdown-item" ">Expenses Report</a>
+                            </div>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Receivable</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item">Record receivable</a>
+                                <a class="dropdown-item">Receivable Report</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Payable</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item">Record Payable</a>
+                                <a class="dropdown-item">Payable Report</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Journal Voucher</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item">New JV</a>
+                                <a class="dropdown-item">JV Report</a>
+                            </div>
+                        </li>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Reports</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item">Income Detailed report</a>
+                                <a class="dropdown-item">Expenses Detailed report</a>
+                                <a class="dropdown-item">Cash report</a>
+                                <a class="dropdown-item">Bank report</a>
+                                <a class="dropdown-item">Day Voucher </a>
+                                <a class="dropdown-item">Profit&Loss</a>
+
+
+
+
+                            </div>
+                        </li>
+                        </li>
+
+
+                        <!-- <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                          </div>
+                        </li> -->
+
+                    </ul>
+                    
+                        <ul class="navbar-nav me-auto">
+                            <li>
+                                <!-- <img style="margin-top: 4px;" src="assets/icons8-customer-32.png" width="30px" height="27px"> -->
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active " data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" style="margin-top:3px;"></i> </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item">Profile</a>
+                                    <a class="dropdown-item">Log Out</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">
+                                    About
+                                    <span class="visually-hidden">(current)</span>
+                                </a>
+                        </ul>
+                        
+
+
+
+                        <!-- <input class="form-control me-sm-2" type="search" placeholder="Search"> -->
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!--<footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - Ams - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/select2.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            //$('.typeahead').select2({});
+            $(".typeahead").select2({
+                width: "100%"
+            })
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

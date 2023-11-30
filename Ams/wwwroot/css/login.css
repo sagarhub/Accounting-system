@@ -1,0 +1,93 @@
+﻿* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+#userPass_input {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+#heading {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: blue;
+}
+
+#lg_btn {
+    border: 1px solid;
+    border-radius: 12px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 10px;
+    background-color: rgb(58, 58, 233);
+}
+
+body {
+    background-color: rgb(236, 244, 251);
+}
+
+#login_style {
+    background-color: rgb(236, 244, 251);
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 5%;
+    border: 1px solid rgb(210, 216, 221);
+    border-radius: 25px;
+    padding: 50px;
+    width: 30%;
+    box-shadow: 20px 20px 50px grey;
+}
+
+#forgot {
+    color: green;
+    text-align: center;
+    margin-right: 30;
+}
+
+#vms {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 35px;
+}
+
+#reg_btn {
+    border: 1px solid;
+    border-radius: 12px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 10px;
+    background-color: rgb(58, 58, 233);
+}
+
+.secondary_button {
+    border: 1px solid;
+    border-radius: 12px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 10px;
+    background-color: rgb(232, 106, 39);
+}
+
+input {
+    width: 100%;
+}
+
+button {
+    width: 100%;
+}

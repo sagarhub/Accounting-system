@@ -1,0 +1,44 @@
+﻿
+body {
+    background-color: rgb(236, 244, 251);
+}
+
+form {
+    background-color: rgb(236, 244, 251);
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5%;
+    border: 1px solid rgb(35, 37, 38);
+    border-radius: 25px;
+    padding: 50px;
+    width: 30%;
+    box-shadow: 20px 20px 50px grey;
+}
+
+#reg_btn {
+    border: 1px solid;
+    border-radius: 12px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 10px;
+    background-color: rgb(73, 221, 98);
+}
+
+input {
+    padding: 10px;
+    border-radius: 7px;
+    width: 100%;
+}
+
+button {
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+    gap: 10px;
+}
+
+.mb-2 {
+    margin-bottom: 10px;
+}

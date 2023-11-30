@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/login.css" />
+
+</head>
+
+<body>
+    <form id="login_style" method="post">
+        <!-- <h3 id="heading">Login or Sign Up</h3> -->
+        <div style="width:85%; margin: 0 auto;">
+            <input id="userPass_input" type="text" name="UserName" placeholder="Username" required> <br>
+            <input id="userPass_input" type="password" name="Password" placeholder="Password" required><br>
+            <button id="lg_btn" name="login" style="cursor:pointer; ">Log In </button>
+            <!-- <a style="color:green;" href="./Reset Password.php">
+              <p style="text-align: center; cursor:pointer;  ">Forgot password?</p>
+            </a> -->
+            <hr>
+            <a class="secondary_button" asp-controller="User" asp-action="Create">Register</a>
+
+            <br>
+        </div>
+      
+    </form>
+
+</body>
+
+</html>
