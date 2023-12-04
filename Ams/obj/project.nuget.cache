@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3xwfwPQU0Ww7HvTHBn+IX+Mju/YMwTmGf5F9xPeYYknWzFjtRayI4svgHLqjmr58Zr+HNCPBKVqQ/P16bmnmlw==",
+  "dgSpecHash": "mzo6AE0WooRSf047LtqnwMKfqfvUAKZXfkrL/4kWF3MxQmpxVC4ytgkhpfqM1AJaj+hYN4ewX8tjdRTk/Y8LPw==",
   "success": true,
-  "projectFilePath": "H:\\project 6th sem\\Ams\\Ams\\Ams.csproj",
+  "projectFilePath": "H:\\Ams\\Ams\\Ams.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bhand\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\bhand\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

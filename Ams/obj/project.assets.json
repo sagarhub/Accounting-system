@@ -15268,11 +15268,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\project 6th sem\\Ams\\Ams\\Ams.csproj",
+      "projectUniqueName": "H:\\Ams\\Ams\\Ams.csproj",
       "projectName": "Ams",
-      "projectPath": "H:\\project 6th sem\\Ams\\Ams\\Ams.csproj",
+      "projectPath": "H:\\Ams\\Ams\\Ams.csproj",
       "packagesPath": "C:\\Users\\bhand\\.nuget\\packages\\",
-      "outputPath": "H:\\project 6th sem\\Ams\\Ams\\obj\\",
+      "outputPath": "H:\\Ams\\Ams\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bhand\\AppData\\Roaming\\NuGet\\NuGet.Config",

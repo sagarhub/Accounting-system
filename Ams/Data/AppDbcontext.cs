@@ -16,5 +16,7 @@ namespace Ams.Data
 
         public DbSet<Income> incomes { get; set; } 
         public DbSet<Expenses> expenses { get; set; }
+        public DbSet<Payable> payables { get; set; }
+        public DbSet<Receivable> receivables { get; set; }
     }
 }

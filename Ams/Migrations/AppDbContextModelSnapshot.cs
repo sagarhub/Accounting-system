@@ -185,6 +185,72 @@ namespace Ams.Migrations
                     b.ToTable("ParentGroups");
                 });
 
+            modelBuilder.Entity("Ams.Models.Payable", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("PayableLedger")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("amount")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("rec_status")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("remarks")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("user_id")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("paybles");
+                });
+
+            modelBuilder.Entity("Ams.Models.Receivable", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ReceivableleLedger")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("amount")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("rec_status")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("remarks")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("user_id")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("receivables");
+                });
+
             modelBuilder.Entity("Ams.Models.User", b =>
                 {
                     b.Property<int>("Id")
