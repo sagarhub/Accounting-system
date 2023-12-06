@@ -76,7 +76,7 @@ namespace Ams.Controllers
                 expenses.ledger_id = vm.ledger_id;
                 expenses.amount = vm.amount;
                 expenses.remarks = vm.remarks;
-                 expenses.date = DateTime.Now;
+                 expenses.date = vm.date;
                 expenses.ExpensesLedger = vm.ExpensesLedger;
 
 

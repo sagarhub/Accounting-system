@@ -1,59 +1,63 @@
-﻿@model Ams.Models.Receivable
+﻿@model Ams.ViewModels.ReceivableVm
 
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    form {
+        background-color: white;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 5%;
+        border: 1px solid rgb(35, 37, 38);
+        border-radius: 0px;
+        padding: 50px;
+        width: 50%;
+    }
+</style>
 
-<h1>Create</h1>
-
-<h4>Receivable</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="date" class="control-label"></label>
-                <input asp-for="date" class="form-control" />
-                <span asp-validation-for="date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="amount" class="control-label"></label>
-                <input asp-for="amount" class="form-control" />
-                <span asp-validation-for="amount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ReceivableleLedger" class="control-label"></label>
-                <input asp-for="ReceivableleLedger" class="form-control" />
-                <span asp-validation-for="ReceivableleLedger" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="remarks" class="control-label"></label>
-                <input asp-for="remarks" class="form-control" />
-                <span asp-validation-for="remarks" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="user_id" class="control-label"></label>
-                <input asp-for="user_id" class="form-control" />
-                <span asp-validation-for="user_id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="rec_status" class="control-label"></label>
-                <input asp-for="rec_status" class="form-control" />
-                <span asp-validation-for="rec_status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+<form asp-action="Create">
+    <h4 style="text-align:center;">Record Payable</h4>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="date" class="control-label">Date</label>
+        <input asp-for="date" class="form-control" />
+        <span asp-validation-for="date" class="text-danger"></span>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="form-group">
+        <label asp-for="ReceivableLedger" class="control-label">Ledger</label>
+        <select asp-for="ReceivableLedger" asp-items="@Model.LegerSelectList()" class="form-control">
+            <option value="">select</option>
+        </select>
+        <span asp-validation-for="ReceivableLedger" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="amount" class="control-label">Amount</label>
+        <input asp-for="amount" class="form-control" />
+        <span asp-validation-for="amount" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="remarks" class="control-label">Remarks</label>
+        <input asp-for="remarks" class="form-control" />
+        <span asp-validation-for="remarks" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <input style="margin-top:10px;" type="submit" value="Create" class="btn btn-primary" />
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</form>
+
+
+
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

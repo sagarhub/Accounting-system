@@ -74,11 +74,12 @@ namespace Ams.Controllers
             {
                 var payable = new Payable();
                 payable.PayableLedger = vm.PayableLedger;
-                payable.date = DateTime.Now;
+                payable.date = vm.date;
                 payable.amount = vm.amount;
-                payable.rec_status  = vm.rec_status;
+                payable.remarks = vm.remarks;
+                 
 
-                _context.Add(payable);
+                _context.payables.Add(payable);
                 await _context.SaveChangesAsync();
                 tx.Complete();
             }

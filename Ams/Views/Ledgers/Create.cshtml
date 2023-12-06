@@ -8,47 +8,61 @@
 
 
 
+<style>
+    form {
+        background-color: white;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 5%;
+        border: 1px solid rgb(35, 37, 38);
+        border-radius: 0px;
+        padding: 50px;
+        width: 50%;
+    }
+</style>
 
- <form method="post">
-        <h3 style="color: green; text-align:center; margin-top:3px; margin-top:5px;">Create Ledger</h3>
-    <table class="table table-bordered" id="copy_tbl">
-        <thead>
-            <tr class="table-primary" style="text-align:center;">
-                <th style="width:20%;">
-           Parent Group
-           
-           </th>
-           <th>
-           Code
-           
-                </th>
-                <th>
-        Ledger Name
-           </th>
-            </tr>
-        </thead>
 
-        <tbody>
-             @for(var i = 0;i<5; i++)
-            {
-                <tr>
-                    <td>
-                        <select class="typeahead form-control" name="Parent_ledgerId" asp-asp-items="@Model.ParentGroupList()">
-                            <option value="">select</option>
-                        </select>
-                    </td>
-                    <td>
-                        <input class="form-control" type="text" name="code" >
-                    </td>
-                    <td>
-                        <input class="form-control" style="margin-bottom: 10px;" type="text" name="Ledger_name" >
-                        </td>
+<form asp-action="Create">
+    <h4 style="text-align:center;">Create Ledger</h4>
+    <div asp-validation-summary="All" class="text-danger"></div>
 
-                </tr>
-            }
+    <div class="form-group">
+        <label asp-for="Parent_ledgerId" class="control-label">Parent Group</label>
+        <select asp-for="Parent_ledgerId" asp-items="@Model.ParentGroupList()" class="form-control">
+            <option value="">select</option>
+        </select>
+        <span asp-validation-for="Parent_ledgerId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="code" class="control-label">Code</label>
+        <input asp-for="code" class="form-control" />
+        <span asp-validation-for="code" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Ledger_name" class="control-label">Name</label>
+        <input asp-for="Ledger_name" class="form-control" />
+        <span asp-validation-for="Ledger_name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Description</label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
 
-        </tbody>
-        </table>
-    <button class="btn btn-primary btn-sm" type="submit" style="cursor:pointer;">Register</button>
-    
+
+    <div class="form-group">
+        <input style="margin-top:10px;" type="submit" value="Create" class="btn btn-primary" />
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
 </form>
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

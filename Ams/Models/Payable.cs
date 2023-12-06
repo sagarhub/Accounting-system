@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ams.Models
@@ -14,7 +15,9 @@ namespace Ams.Models
        
         public string remarks { get; set; }
         public int user_id { get; set; }
-        public string rec_status { get; set; }
+
+
+        public string rec_status { get; set; } = "A";
 
     }
 }

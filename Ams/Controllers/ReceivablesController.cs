@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Ams.Data;
 using Ams.Models;
+using Ams.ViewModels;
+using System.Transactions;
 
 namespace Ams.Controllers
 {
@@ -46,9 +48,12 @@ namespace Ams.Controllers
         }
 
         // GET: Receivables/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            var vm = new ReceivableVm();
+            vm.ledgers = await _context.ledgers.ToListAsync();
+
+            return View(vm);
         }
 
         // POST: Receivables/Create
@@ -56,16 +61,31 @@ namespace Ams.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,date,amount,ReceivableleLedger,remarks,user_id,rec_status")] Receivable receivable)
+        public async Task<IActionResult> Create(ReceivableVm vm)
+
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _context.Add(receivable);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                vm.ledgers = await _context.ledgers.ToListAsync();
+                return View(vm);
             }
-            return View(receivable);
+            using (var tx = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+
+            {
+                var receivable = new Receivable();
+                receivable.ReceivableLedger = vm.ReceivableLedger;
+                receivable.date = vm.date;
+                receivable.amount = vm.amount;
+                receivable.remarks = vm.remarks;
+
+
+                _context.receivables.Add(receivable);
+                await _context.SaveChangesAsync();
+                tx.Complete();
+            }
+            return RedirectToAction("Index");
         }
+
 
         // GET: Receivables/Edit/5
         public async Task<IActionResult> Edit(int? id)

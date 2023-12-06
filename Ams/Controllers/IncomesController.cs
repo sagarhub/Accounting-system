@@ -76,8 +76,9 @@ namespace Ams.Controllers
                 income.ledger_id = vm.ledger_id;
                 income.amount = vm.amount;
                 income.remarks = vm.remarks;
-                income.date = DateTime.Now;
+                income.date = vm.date;
                 income.IncomeLedger = vm.IncomeLedger;
+
 
            
                 _context.incomes.Add(income);

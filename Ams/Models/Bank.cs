@@ -19,6 +19,8 @@ namespace Ams.Models
 
         public int user_id { get; set; }
         public string Remarks { get; set; }
+
+        public string rec_status { get; set; } = "A";
      
 
 

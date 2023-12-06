@@ -9,6 +9,8 @@ namespace Ams.View_Models
         public int code { get; set; }      
         public int Parent_ledgerId { get; set; }
 
+        public string Description { get; set; }
+
         public List<ParentGroup> parentGroups;
         public SelectList ParentGroupList()
         {

@@ -58,6 +58,17 @@ namespace Ams.Controllers
                         };
                         _context.banks.Add(bank);
                     _context.SaveChanges();
+
+                    var LedgerEntry = new Ledger
+                    {
+                        Ledger_name = bank.Bank_name,
+                        Description = bank.Remarks,
+                        rec_status = bank.rec_status,
+
+                        BankId = bank.Id
+                    };
+                    _context.ledgers.Add(LedgerEntry);
+                    _context.SaveChanges();
                     return RedirectToAction("Index");
                 }
 

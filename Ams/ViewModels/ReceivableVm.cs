@@ -11,8 +11,8 @@ namespace Ams.ViewModels
         public int ReceivableLedger { get; set; }
 
         public string remarks { get; set; }
-        public int user_id { get; set; }
-        public string rec_status { get; set; }
+      
+       
         public List<Ledger> ledgers;
         public SelectList LegerSelectList()
         {

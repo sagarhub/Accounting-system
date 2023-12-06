@@ -11,7 +11,7 @@ namespace Ams.ViewModels
         public int ledger_id { get; set; }
         public string remarks { get; set; }
         public int user_id { get; set; }
-        public string rec_status { get; set; }
+        
         public List<Ledger> ledgers;
         public SelectList LegerSelectList()
         {
@@ -20,6 +20,15 @@ namespace Ams.ViewModels
                 nameof(Ledger.Id),
                 nameof(Ledger.Ledger_name),
                 ledger_id
+                );
+        }
+        public SelectList ExpensesLedgerSelectList()
+        {
+            return new SelectList(
+                ledgers,
+                nameof(Ledger.Id),
+                nameof(Ledger.Ledger_name),
+                ExpensesLedger
                 );
         }
 

@@ -5,33 +5,54 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<div class="row" style="margin-top: 1%;">
+    <div class="col-2">
+        <div class="form-group">
+            <label for="">Ledger</label>
+            <select class="typeahead form-control" name="name_search">
+                <option value="">Select</option>
+
+
+
+            </select>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="form-group">
+            <label for="">Code</label>
+            <input type="text" />
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+<h3 style="text-align:center">Income Details</h3>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <button class="btn-primary"><a asp-action="Create"></a>Create New</button>
 </p>
-<table class="table">
+<table class="table table-bordered table-striped table-hover table-sn ">
     <thead>
-        <tr>
+        <tr class="table-primary">
             <th>
-                @Html.DisplayNameFor(model => model.date)
+                Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.amount)
+                Amount
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ledger_id)
+                Ledger
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.remarks)
+                Remarks
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.user_id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.rec_status)
-            </th>
-            <th></th>
+Actions
+</th>
         </tr>
     </thead>
     <tbody>
@@ -44,22 +65,18 @@
                 @Html.DisplayFor(modelItem => item.amount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ledger_id)
+                @Html.DisplayFor(modelItem => item.IncomeLedger)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.remarks)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.user_id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.rec_status)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+
+
+                <td>
+                    <a class="btn btn-outline-primary btn-sm" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .75rem; border-radius:7px;" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-outline-primary btn-sm" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .75rem; border-radius:7px;" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-outline-danger btn-sm" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .75rem; border-radius:7px;" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
         </tr>
 }
     </tbody>

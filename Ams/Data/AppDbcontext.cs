@@ -18,5 +18,13 @@ namespace Ams.Data
         public DbSet<Expenses> expenses { get; set; }
         public DbSet<Payable> payables { get; set; }
         public DbSet<Receivable> receivables { get; set; }
+        protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+        {
+            base.ConfigureConventions(configurationBuilder);
+            configurationBuilder.Properties<DateTime>()
+                .HaveColumnType("timestamp without time zone");
+        }
+        public DbSet<Transactions> transactions { get; set; }
+
     }
 }

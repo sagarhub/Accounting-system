@@ -4,42 +4,63 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<form method="post">
-  
-    <div>
-        <h3 style="text-align:center;">New Bank</h3>
-        <table class="table table-bordered" id="copy_tbl">
-            <thead>
-                <tr class="table-primary" style="text-align:center;">
-                    <th style="width:20%;">Name</th>
-                    <th>Account No</th>
-                    <th>Bank Address</th>
-                    <th>Contact</th>
-                    <th>Initial Amount</th>
-                    <th>Remarks</th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                @for(var i = 0;i<5; i++)
-                {
-               
-                <tr>
-                    <td><input type="text" class="form-control" name="Bank_name"></td>
-                        <td><input type="text" class="form-control" name="Account_no"> </td>
-                        <td><input type="text" class="form-control" name="Address"> </td>
-                        <td><input type="number" class="form-control" name="Contact"> </td>
-                        <td><input type="number" class="form-control" name="Balance"> </td>
-                        <td><input type="text" class="form-control" name="Remarks"> </td>
-                </tr>
-               }
-            </tbody>
-        </table>
-        <button type="submit" name="save" class="btn btn-primary btn-sm"><i class="fa fa-save"></i> Save</button>
-      </div>
 
+<style>
+    form {
+        background-color: white;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 5%;
+        border: 1px solid rgb(35, 37, 38);
+        border-radius: 0px;
+        padding: 50px;
+        width: 50%;
+    }
+</style>
+
+
+<form asp-action="Create">
+    <h4 style="text-align:center;">Create Bank</h4>
+    <div asp-validation-summary="All" class="text-danger"></div> 
+    <div class="form-group">
+        <label asp-for="Bank_name" class="control-label">Bank Name</label>
+        <input asp-for="Bank_name" class="form-control" />
+        <span asp-validation-for="Bank_name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Account_no" class="control-label">Account No</label>
+        <input asp-for="Account_no" class="form-control" />
+        <span asp-validation-for="Account_no" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Address" class="control-label">Address</label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Contact" class="control-label">Contact</label>
+        <input asp-for="Contact" class="form-control" />
+        <span asp-validation-for="Contact" class="text-danger"></span>
+    </div>
+  
+    <div class="form-group">
+        <label asp-for="Remarks" class="control-label">Remarks</label>
+        <input asp-for="Remarks" class="form-control" />
+        <span asp-validation-for="Remarks" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input style="margin-top:10px;" type="submit" value="Create" class="btn btn-primary" />
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
 </form>
 
 
 
 
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

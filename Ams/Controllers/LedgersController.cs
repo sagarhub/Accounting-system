@@ -50,6 +50,7 @@ namespace Ams.Controllers
                 ledger.Ledger_name = vm.Ledger_name;
                 ledger.code = vm.code;
                 ledger.Parent_ledgerId = vm.Parent_ledgerId;
+                ledger.Description = vm.Description;
 
                     
                     _context.ledgers.Add(ledger);

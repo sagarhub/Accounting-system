@@ -7,6 +7,7 @@ using Ams.Data;
 using Ams.Manager.Interfaces;
 using Ams.Manager;
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
