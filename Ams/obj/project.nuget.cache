@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "mzo6AE0WooRSf047LtqnwMKfqfvUAKZXfkrL/4kWF3MxQmpxVC4ytgkhpfqM1AJaj+hYN4ewX8tjdRTk/Y8LPw==",
+  "dgSpecHash": "CNiWvpzAFt3bXpgitNliv6bQcWRbIGcwi0GPUkXw1VrRgg+3GDCYMQsGLa6coydJu7i1GVe94rm4klzwkPxk8A==",
   "success": true,
   "projectFilePath": "H:\\Ams\\Ams\\Ams.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bhand\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\bhand\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\bhand\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\bhand\\.nuget\\packages\\dapper\\2.1.24\\dapper.2.1.24.nupkg.sha512",
     "C:\\Users\\bhand\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\bhand\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\bhand\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

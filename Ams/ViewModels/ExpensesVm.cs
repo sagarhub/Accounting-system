@@ -15,17 +15,20 @@ namespace Ams.ViewModels
         public List<Ledger> ledgers;
         public SelectList LegerSelectList()
         {
+            var FilterLedger = ledgers.Where(x => x.Parent_ledgerId == 0).ToList();
             return new SelectList(
-                ledgers,
+                FilterLedger,
                 nameof(Ledger.Id),
                 nameof(Ledger.Ledger_name),
                 ledger_id
+
                 );
         }
         public SelectList ExpensesLedgerSelectList()
         {
+            var FilterExpensesLedger = ledgers.Where(i => i.Parent_ledgerId != 0).ToList();
             return new SelectList(
-                ledgers,
+                FilterExpensesLedger,
                 nameof(Ledger.Id),
                 nameof(Ledger.Ledger_name),
                 ExpensesLedger

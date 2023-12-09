@@ -1,0 +1,68 @@
+﻿@model Ams.ViewModels.IncomeExpensesReportVm
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}.
+<div class="row">
+    <div class="col-6">
+<table class="table table-bordered  table-hover table-sn">
+   
+    <thead> 
+                <tr>
+                    <th class="text-left" colspan="3">
+                        Income
+                    </th>
+                </tr>
+        <tr>
+
+            <th>Particulars</th>
+            <th>lf</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+       
+        @foreach(var IncomeExpensesReport in Model.IncomeExpensesReports)
+        {
+            <tr>
+        <td>@IncomeExpensesReport.Ledger_name</td>
+        <td>@IncomeExpensesReport.code</td>
+        <td>@IncomeExpensesReport.amount</td>
+        </tr>
+        }
+    </tbody>
+</table>
+</div>
+<div class="col-6">
+    <table class="table table-bordered  table-hover table-sn ">
+
+        <thead>
+                <tr>
+                    <th class="text-left" colspan="3">
+                        Expenses
+                    </th>
+                </tr>
+            <tr>
+
+                <th>Particulars</th>
+                <th>lf</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+         
+            @foreach (var IncomeExpensesReport in Model.IncomeExpensesReports)
+            {
+                <tr>
+                    <td>@IncomeExpensesReport.Ledger_name</td>
+                    <td>@IncomeExpensesReport.amount</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    </div>
+
+
+</div>
+      

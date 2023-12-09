@@ -64,7 +64,6 @@ namespace Ams.Controllers
                         Ledger_name = bank.Bank_name,
                         Description = bank.Remarks,
                         rec_status = bank.rec_status,
-
                         BankId = bank.Id
                     };
                     _context.ledgers.Add(LedgerEntry);

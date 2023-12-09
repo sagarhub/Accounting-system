@@ -5,22 +5,34 @@
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" href="~/css/User.css" />
- <form method="post">
+  <form method="post">
         <h3 style="color: green; text-align:center; margin-top:3px">Register to continue</h3>
-        <div style="width: 90%; margin:auto;">
+        <div style="width: 80%; margin:auto;">
 
             <div class="flex mb-2">
+                <input type="text" name="Name" placeholder="First Name" required>
+                <input type="text" name="Last_name" placeholder="Last Name" required>
+            </div>
+            <div class="flex mb-2">
 
-                <input type="text" name="Bank name" placeholder="Name" required>
-                <input type="text" name="Account_no" placeholder="Last Name" required>
+                <input type="text" name="address" placeholder="Address" required>
             </div>
             <div>
+                <input style="margin-bottom: 10px;" type="text" name="Contact" placeholder="Contact" required>
+                <input type="text" name="Email" placeholder="Email" required>
+            </div><br>
+            <p>Login credentials</p>
+            <hr>
+            <div>
+            <input style="margin-bottom: 10px;" type="text" name="UserName" placeholder="Username" required>
+            </div>
+            <div class="flex mb-2">
+                <input type="password" name="Password" placeholder="New password" required>
+                <input type="password" name="CPassword" placeholder="Confirm password">
+            </div>
 
-            
-           
 
 
-
-            <button type="submit" style="cursor:pointer;" id="reg_btn" name="save">Register</button>
-
+            <button style="cursor:pointer;" id="reg_btn" name="save">Register</button>
+</div>
 </form>

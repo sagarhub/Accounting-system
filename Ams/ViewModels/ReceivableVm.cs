@@ -14,14 +14,17 @@ namespace Ams.ViewModels
       
        
         public List<Ledger> ledgers;
-        public SelectList LegerSelectList()
+        public SelectList ReceivableLegerSelectList()
         {
+            var FilterReceivableLedger = ledgers.Where(x => x.Parent_ledgerId == 0).ToList();
             return new SelectList(
-                ledgers,
+                FilterReceivableLedger,
                 nameof(Ledger.Id),
                 nameof(Ledger.Ledger_name),
                 ReceivableLedger
+
                 );
         }
+     
     }
 }

@@ -31,7 +31,7 @@
           
             <div class="form-group">
                 <label asp-for="PayableLedger" class="control-label">Ledger</label>
-                <select asp-for="PayableLedger" asp-items="@Model.LegerSelectList()" class="form-control">
+                <select asp-for="PayableLedger" asp-items="@Model.PayableLedgerSelectList()" class="form-control">
                     <option value="">select</option>
                 </select>
                 <span asp-validation-for="PayableLedger" class="text-danger"></span>

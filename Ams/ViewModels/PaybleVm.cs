@@ -16,10 +16,12 @@ namespace Ams.ViewModels
         
 
         public List<Ledger> ledgers;
-        public SelectList LegerSelectList()
+     
+        public SelectList PayableLedgerSelectList()
         {
+            var FilterPayableLEdger = ledgers.Where(i => i.Parent_ledgerId != 0).ToList();
             return new SelectList(
-                ledgers,
+                FilterPayableLEdger,
                 nameof(Ledger.Id),
                 nameof(Ledger.Ledger_name),
                 PayableLedger

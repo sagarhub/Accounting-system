@@ -28,7 +28,7 @@
 
     <div class="form-group">
         <label asp-for="ReceivableLedger" class="control-label">Ledger</label>
-        <select asp-for="ReceivableLedger" asp-items="@Model.LegerSelectList()" class="form-control">
+        <select asp-for="ReceivableLedger" asp-items="@Model.ReceivableLegerSelectList()" class="form-control">
             <option value="">select</option>
         </select>
         <span asp-validation-for="ReceivableLedger" class="text-danger"></span>

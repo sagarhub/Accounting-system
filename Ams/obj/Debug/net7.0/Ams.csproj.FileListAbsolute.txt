@@ -1363,3 +1363,4 @@ H:\Ams\Ams\obj\Debug\net7.0\refint\Ams.dll
 H:\Ams\Ams\obj\Debug\net7.0\Ams.pdb
 H:\Ams\Ams\obj\Debug\net7.0\Ams.genruntimeconfig.cache
 H:\Ams\Ams\obj\Debug\net7.0\ref\Ams.dll
+H:\Ams\Ams\bin\Debug\net7.0\Dapper.dll

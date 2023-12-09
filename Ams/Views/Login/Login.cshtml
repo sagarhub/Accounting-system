@@ -11,11 +11,41 @@
     <link rel="stylesheet" href="~/css/login.css" />
 
 </head>
+<style>
+   img {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-bottom: 35px;
+    }
 
+    .logo {
+        font-family: 'Arial', sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom:10px;
+    }
+
+    .tracker {
+        color: #4CAF50;
+    }
+
+    .expenses {
+        color: #FF5722;
+    }
+
+</style>
 <body>
     <form id="login_style" method="post">
         <!-- <h3 id="heading">Login or Sign Up</h3> -->
         <div style="width:85%; margin: 0 auto;">
+            <div class="logo" >
+                <span class="tracker">Income</span> <span>&</span>  <span class="expenses">Expenses</span> <span>Tracker</span>
+            </div>
             <input id="userPass_input" type="text" name="UserName" placeholder="Username" required> <br>
             <input id="userPass_input" type="password" name="Password" placeholder="Password" required><br>
             <button id="lg_btn" name="login" style="cursor:pointer; ">Log In </button>

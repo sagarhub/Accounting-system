@@ -7,54 +7,72 @@
 
 <style>
     form {
-        background-color: white;
-        margin-right: auto;
-        margin-left: auto;
-        margin-top: 5%;
-        border: 1px solid rgb(35, 37, 38);
-        border-radius: 0px;
-        padding: 50px;
         width: 50%;
+        margin-top: 3%;
     }
 </style>
-
-
 <form asp-action="Create">
-    <h4 style="text-align:center;">Create Bank</h4>
-    <div asp-validation-summary="All" class="text-danger"></div> 
-    <div class="form-group">
-        <label asp-for="Bank_name" class="control-label">Bank Name</label>
-        <input asp-for="Bank_name" class="form-control" />
-        <span asp-validation-for="Bank_name" class="text-danger"></span>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-header">
+                <h5 class="card-title" style="text-align:center;">Create Bank</h5>
+            </div>
+            </div>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label asp-for="Bank_name" class="control-label">Bank Name</label>
+                    <input asp-for="Bank_name" class="form-control" />
+                    <span asp-validation-for="Bank_name" class="text-danger"></span>                                               
+                </div>
+            </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                    <label asp-for="Account_no" class="control-label">Account No</label>
+                    <input asp-for="Account_no" class="form-control" />
+                    <span asp-validation-for="Account_no" class="text-danger"></span>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                    <label asp-for="Address" class="control-label">Address</label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                </div>
+                    <div class="col-lg-6">
+                <div class="form-group">
+                    <label asp-for="Contact" class="control-label">Contact</label>
+                    <input asp-for="Contact" class="form-control" />
+                    <span asp-validation-for="Contact" class="text-danger"></span>
+                </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Remarks" class="control-label">Description</label>
+                    <textarea asp-for="Remarks" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Remarks" class="text-danger"></span>
+                </div>
+                </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-lg-2">
+                        <input type="submit" value="Create" class="btn btn-primary btn-block req-ack" />
+                            </div>
+                            <div class="col-lg-3">
+                        <a asp-action="Index" class="btn btn-secondary btn-block">Back to List</a>
+                        </div>
+                        </div>
+                </div> 
+ 
     </div>
-    <div class="form-group">
-        <label asp-for="Account_no" class="control-label">Account No</label>
-        <input asp-for="Account_no" class="form-control" />
-        <span asp-validation-for="Account_no" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="Address" class="control-label">Address</label>
-        <input asp-for="Address" class="form-control" />
-        <span asp-validation-for="Address" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Contact" class="control-label">Contact</label>
-        <input asp-for="Contact" class="form-control" />
-        <span asp-validation-for="Contact" class="text-danger"></span>
-    </div>
-  
-    <div class="form-group">
-        <label asp-for="Remarks" class="control-label">Remarks</label>
-        <input asp-for="Remarks" class="form-control" />
-        <span asp-validation-for="Remarks" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <input style="margin-top:10px;" type="submit" value="Create" class="btn btn-primary" />
-    </div>
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
+        </div>
 </form>
+
 
 
 

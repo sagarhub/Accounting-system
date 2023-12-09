@@ -19,10 +19,12 @@ namespace Ams.View_Models
                 parentGroups,
                 nameof(ParentGroup.id),
                 nameof(ParentGroup.name),
+                
                 Parent_ledgerId
 
                 );
         }
+        
 
     }
 

@@ -36,6 +36,7 @@
       "Ams/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
+          "Dapper": "2.1.24",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "7.0.12",
           "Microsoft.EntityFrameworkCore": "7.0.12",
           "Microsoft.EntityFrameworkCore.Design": "7.0.12",
@@ -397,6 +398,17 @@
         },
         "compile": {
           "lib/net6.0/BCrypt.Net-Next.dll": {}
+        }
+      },
+      "Dapper/2.1.24": {
+        "runtime": {
+          "lib/net7.0/Dapper.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.1.24.50284"
+          }
+        },
+        "compile": {
+          "lib/net7.0/Dapper.dll": {}
         }
       },
       "Humanizer/2.14.1": {
@@ -4915,6 +4927,13 @@
       "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
       "path": "bcrypt.net-next/4.0.3",
       "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
+    },
+    "Dapper/2.1.24": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/2t2vsdJyZRsk13AsWigZpsuFvEwK+o3v862cEULXoww905gyKhJFSuwmZI/4Ui9COX9ZCFCI09UHyH4wVYl3A==",
+      "path": "dapper/2.1.24",
+      "hashPath": "dapper.2.1.24.nupkg.sha512"
     },
     "Humanizer/2.14.1": {
       "type": "package",

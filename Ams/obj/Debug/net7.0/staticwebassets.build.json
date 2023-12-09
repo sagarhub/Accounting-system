@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "N3LJZ77MVDheYy/iSnkrlOmynE8eyjFtyGl8V1fiYto=",
+  "Hash": "NmiBxNo44J2TXyxUL0S1VPQPyHrIAKyrepePSAEVrTM=",
   "Source": "Ams",
   "BasePath": "_content/Ams",
   "Mode": "Default",
@@ -1154,6 +1154,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "H:\\Ams\\Ams\\wwwroot\\Screenshot 2023-12-07 223736.png",
+      "SourceId": "Ams",
+      "SourceType": "Discovered",
+      "ContentRoot": "H:\\Ams\\Ams\\wwwroot\\",
+      "BasePath": "_content/Ams",
+      "RelativePath": "Screenshot 2023-12-07 223736.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Screenshot 2023-12-07 223736.png"
     }
   ]
 }
