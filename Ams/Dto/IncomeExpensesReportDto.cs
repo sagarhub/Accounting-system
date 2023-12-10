@@ -8,5 +8,7 @@
         public decimal amount { get; set; }
         public string Ledger_name { get; set; }
         public decimal code { get; set; }
+        public string remarks { get; set; }
+        public int Id { get; set; }
     }
 }

@@ -8,10 +8,10 @@ namespace Ams.Controllers
 {
     public class ReportsController : Controller
     {
-        private readonly IIncomeExpensesReportRepo _incomeExpensesReportRepo;
-         public ReportsController(IIncomeExpensesReportRepo incomeExpensesReportRepo)
+        private readonly IReportsRepo _reportsRepo;
+         public ReportsController(IReportsRepo reportsRepo)
         {
-           _incomeExpensesReportRepo = incomeExpensesReportRepo;
+           _reportsRepo = reportsRepo;
         }
          
     
@@ -20,9 +20,48 @@ namespace Ams.Controllers
 
             var vm = new IncomeExpensesReportVm
             {
-                IncomeExpensesReports = await _incomeExpensesReportRepo.GetIncomeExpensesReportsAsync(),
+                IncomeExpensesReports = await _reportsRepo.GetIncomeExpensesReportsAsync(),
+                ExpenseReports = await _reportsRepo.GetExpenseReportsAsync(),
             };
             return View(vm);
+        }
+        public async Task<IActionResult> IncomeReport()
+        {
+
+            var vm = new IncomeExpensesReportVm
+            {
+                IncomeExpensesReports = await _reportsRepo.GetIncomeExpensesReportsAsync(),
+                ExpenseReports = await _reportsRepo.GetExpenseReportsAsync(),
+            };
+            return View(vm);
+        }
+        public async Task<IActionResult> ExpensesReport()
+        {
+
+            var vm = new IncomeExpensesReportVm
+            {
+                IncomeExpensesReports = await _reportsRepo.GetIncomeExpensesReportsAsync(),
+                ExpenseReports = await _reportsRepo.GetExpenseReportsAsync(),
+            };
+            return View(vm);
+        }
+        public async Task<IActionResult> PayableReport()
+        {
+            var vm = new IncomeExpensesReportVm
+            {
+                PayableReports = await _reportsRepo.GetPayableReportsAsync(),
+
+            };
+            return View(vm);
+        }
+        public async Task<IActionResult> ReceivableReport()
+        {
+            var vm = new IncomeExpensesReportVm
+            {
+                ReceivableReports = await _reportsRepo.GetReceivableReportsAsync(),
+            };
+            return View(vm);
+
         }
     }
 }

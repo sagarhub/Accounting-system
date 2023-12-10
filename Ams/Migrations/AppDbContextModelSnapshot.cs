@@ -217,6 +217,9 @@ namespace Ams.Migrations
                     b.Property<DateTime>("date")
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<int>("ledger_id")
+                        .HasColumnType("integer");
+
                     b.Property<string>("rec_status")
                         .IsRequired()
                         .HasColumnType("text");
@@ -249,6 +252,9 @@ namespace Ams.Migrations
 
                     b.Property<DateTime>("date")
                         .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("ledger_id")
+                        .HasColumnType("integer");
 
                     b.Property<string>("rec_status")
                         .IsRequired()

@@ -40,10 +40,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZW5zZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Ams/Ams/Views/Expenses/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhwZW5zZXNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [H:/Ams/Ams/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -66,10 +62,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [H:/Ams/Ams/Views/Incomes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jb21lc1xFZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[H:/Ams/Ams/Views/Incomes/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5jb21lc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [H:/Ams/Ams/Views/Ledgers/Create.cshtml]
@@ -112,10 +104,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5YWJsZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Ams/Ams/Views/Payables/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5YWJsZXNcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [H:/Ams/Ams/Views/Receivables/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjZWl2YWJsZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -132,12 +120,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjZWl2YWJsZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[H:/Ams/Ams/Views/Receivables/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjZWl2YWJsZXNcSW5kZXguY3NodG1s
+[H:/Ams/Ams/Views/Reports/ExpensesReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xFeHBlbnNlc1JlcG9ydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [H:/Ams/Ams/Views/Reports/IncomeExpenses.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xJbmNvbWVFeHBlbnNlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Ams/Ams/Views/Reports/IncomeReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xJbmNvbWVSZXBvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Ams/Ams/Views/Reports/PayableReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xQYXlhYmxlUmVwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/Ams/Ams/Views/Reports/ReceivableReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xSZWNlaXZhYmxlUmVwb3J0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [H:/Ams/Ams/Views/Shared/Error.cshtml]

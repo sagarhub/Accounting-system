@@ -4,54 +4,78 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <style>
     form {
-        background-color: white;
-        margin-right: auto;
-        margin-left: auto;
-        margin-top: 5%;
-        border: 1px solid rgb(35, 37, 38);
-        border-radius: 0px;
-        padding: 50px;
         width: 50%;
+        margin-top: 3%;
     }
 </style>
-
 <form asp-action="Create">
-    <h4 style="text-align:center;">Record Payable</h4>
-    <div asp-validation-summary="All" class="text-danger"></div>
-    <div class="form-group">
-        <label asp-for="date" class="control-label">Date</label>
-        <input asp-for="date" class="form-control" />
-        <span asp-validation-for="date" class="text-danger"></span>
-    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-header">
+                <h5 class="card-title" style="text-align:center;">Record Expenses</h5>
+            </div>
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label asp-for="date" class="control-label">Date</label>
+                        <input asp-for="date" class="form-control" />
+                        <span asp-validation-for="date" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label asp-for="ReceivableLedger" class="control-label">Receivable From</label>
+                        <select asp-for="ReceivableLedger" asp-items="@Model.ReceivableLegerSelectList()" class="form-control">
+                            <option value="">select</option>
+                        </select>
+                        <span asp-validation-for="ReceivableLedger" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label asp-for="amount" class="control-label">Amount</label>
+                        <input asp-for="amount" class="form-control" />
+                        <span asp-validation-for="amount" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label asp-for="ledger_id" class="control-label">Cash/Bank</label>
+                        <select asp-for="ledger_id" asp-items="@Model.LegerSelectList()" class="form-control">
+                            <option value="">select</option>
+                        </select>
+                        <span asp-validation-for="ledger_id" class="text-danger"></span>
+                        </div>
+                    </div>
+                <div class="form-group">
+                    <label asp-for="remarks" class="control-label">Remarks</label>
+                    <textarea asp-for="remarks" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="remarks" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-lg-2">
+                    <input type="submit" value="Create" class="btn btn-primary btn-block req-ack" />
+                </div>
+                <div class="col-lg-3">
+                    <a asp-action="Index" class="btn btn-secondary btn-block">Back to List</a>
+                </div>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label asp-for="ReceivableLedger" class="control-label">Ledger</label>
-        <select asp-for="ReceivableLedger" asp-items="@Model.ReceivableLegerSelectList()" class="form-control">
-            <option value="">select</option>
-        </select>
-        <span asp-validation-for="ReceivableLedger" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="amount" class="control-label">Amount</label>
-        <input asp-for="amount" class="form-control" />
-        <span asp-validation-for="amount" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="remarks" class="control-label">Remarks</label>
-        <input asp-for="remarks" class="form-control" />
-        <span asp-validation-for="remarks" class="text-danger"></span>
-    </div>
-
-
-    <div class="form-group">
-        <input style="margin-top:10px;" type="submit" value="Create" class="btn btn-primary" />
-    </div>
-    <div>
-        <a asp-action="Index">Back to List</a>
     </div>
 </form>
+
 
 
 
@@ -61,3 +85,6 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+
+
+

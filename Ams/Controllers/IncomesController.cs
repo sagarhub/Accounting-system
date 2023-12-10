@@ -10,6 +10,7 @@ using Ams.Models;
 using Ams.View_Models;
 using Ams.ViewModels;
 using System.Transactions;
+using Ams.Repository.Interfaces;
 
 namespace Ams.Controllers
 {
@@ -21,14 +22,7 @@ namespace Ams.Controllers
         {
             _context = context;
         }
-
-        // GET: Incomes
-        public async Task<IActionResult> Index()
-        {
-              return _context.incomes != null ? 
-                          View(await _context.incomes.ToListAsync()) :
-                          Problem("Entity set 'AppDbContext.incomes'  is null.");
-        }
+       
 
         // GET: Incomes/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -86,7 +80,7 @@ namespace Ams.Controllers
                 tx.Complete();
                 
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("IncomeReport","Reports");
         }
           
         

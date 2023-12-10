@@ -51,11 +51,11 @@
         </thead>
         <tbody>
          
-            @foreach (var IncomeExpensesReport in Model.IncomeExpensesReports)
+            @foreach (var ExpensesReport in Model.ExpenseReports)
             {
                 <tr>
-                    <td>@IncomeExpensesReport.Ledger_name</td>
-                    <td>@IncomeExpensesReport.amount</td>
+                    <td>@ExpensesReport.Ledger_name</td>
+                    <td>@ExpensesReport.amount</td>
                 </tr>
             }
         </tbody>

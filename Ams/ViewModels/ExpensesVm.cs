@@ -26,7 +26,7 @@ namespace Ams.ViewModels
         }
         public SelectList ExpensesLedgerSelectList()
         {
-            var FilterExpensesLedger = ledgers.Where(i => i.Parent_ledgerId != 0).ToList();
+            var FilterExpensesLedger = ledgers.Where(i => i.Parent_ledgerId == 2).ToList();
             return new SelectList(
                 FilterExpensesLedger,
                 nameof(Ledger.Id),

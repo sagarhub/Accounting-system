@@ -22,13 +22,7 @@ namespace Ams.Controllers
         }
 
         // GET: Receivables
-        public async Task<IActionResult> Index()
-        {
-              return _context.receivables != null ? 
-                          View(await _context.receivables.ToListAsync()) :
-                          Problem("Entity set 'AppDbContext.receivables'  is null.");
-        }
-
+      
         // GET: Receivables/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -77,13 +71,13 @@ namespace Ams.Controllers
                 receivable.date = vm.date;
                 receivable.amount = vm.amount;
                 receivable.remarks = vm.remarks;
-
+                receivable.ledger_id = vm.ledger_id;
 
                 _context.receivables.Add(receivable);
                 await _context.SaveChangesAsync();
                 tx.Complete();
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("ReceivableReport","Reports");
         }
 
 

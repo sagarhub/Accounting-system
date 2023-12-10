@@ -1,0 +1,88 @@
+﻿@model Ams.ViewModels.IncomeExpensesReportVm
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" style="margin-top: 1%;">
+    <div class="col-2">
+        <div class="form-group">
+            <label for="">Ledger</label>
+            <select class="typeahead form-control" name="name_search">
+                <option value="">Select</option>
+
+
+
+            </select>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="form-group">
+            <label for="">Code</label>
+            <input type="text" />
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+<h3 style="text-align:center">Payable Details</h3>
+
+<p>
+    <button class="btn-primary"><a asp-action="Create"></a>Create New</button>
+</p>
+<table class="table table-bordered table-striped table-hover table-sn ">
+    <thead>
+        <tr class="table-primary">
+            <th>
+                Date
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Payable Ledger
+            </th>
+            <th>
+                Cash/Bank
+            </th>
+            <th>
+                Remarks
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PayableReports) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.amount)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.PayableLedger)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ledger_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.remarks)
+            </td>
+
+                <td>
+                    <a class="btn btn-outline-primary btn-sm" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .75rem; border-radius:7px;" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-outline-primary btn-sm" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .75rem; border-radius:7px;" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-outline-danger btn-sm" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .75rem; border-radius:7px;" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

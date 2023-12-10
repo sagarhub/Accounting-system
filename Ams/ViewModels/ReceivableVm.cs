@@ -11,12 +11,12 @@ namespace Ams.ViewModels
         public int ReceivableLedger { get; set; }
 
         public string remarks { get; set; }
-      
+      public int ledger_id { get; set; }
        
         public List<Ledger> ledgers;
         public SelectList ReceivableLegerSelectList()
         {
-            var FilterReceivableLedger = ledgers.Where(x => x.Parent_ledgerId == 0).ToList();
+            var FilterReceivableLedger = ledgers.Where(x => x.Parent_ledgerId == 3).ToList();
             return new SelectList(
                 FilterReceivableLedger,
                 nameof(Ledger.Id),
@@ -25,6 +25,17 @@ namespace Ams.ViewModels
 
                 );
         }
-     
+        public SelectList LegerSelectList()
+        {
+            var FilterLedger = ledgers.Where(x => x.Parent_ledgerId == 0).ToList();
+            return new SelectList(
+                FilterLedger,
+                nameof(Ledger.Id),
+                nameof(Ledger.Ledger_name),
+                ledger_id
+
+                );
+        }
+
     }
 }

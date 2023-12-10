@@ -22,12 +22,7 @@ namespace Ams.Controllers
         }
 
         // GET: Payables
-        public async Task<IActionResult> Index()
-        {
-              return _context.payables != null ? 
-                          View(await _context.payables.ToListAsync()) :
-                          Problem("Entity set 'AppDbContext.payables'  is null.");
-        }
+      
 
         // GET: Payables/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -77,13 +72,13 @@ namespace Ams.Controllers
                 payable.date = vm.date;
                 payable.amount = vm.amount;
                 payable.remarks = vm.remarks;
-                 
+                 payable.ledger_id= vm.ledger_id;
 
                 _context.payables.Add(payable);
                 await _context.SaveChangesAsync();
                 tx.Complete();
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("PayableReport","Reports");
         }
 
         // GET: Payables/Edit/5

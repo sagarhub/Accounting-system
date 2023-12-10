@@ -26,7 +26,7 @@ namespace Ams.ViewModels
         }
         public SelectList IncomeLedgerSelectList()
         {
-            var FilterIncomeLedger = ledgers.Where(i=>i.Parent_ledgerId!=0).ToList();
+            var FilterIncomeLedger = ledgers.Where(i=>i.Parent_ledgerId==1).ToList();
             return new SelectList(
                 FilterIncomeLedger,
                 nameof(Ledger.Id),

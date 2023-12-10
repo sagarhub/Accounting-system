@@ -47,34 +47,34 @@
                             <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Income</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" asp-controller="Incomes" asp-action="Create">Record Income</a>
-                                <a class="dropdown-item" asp-controller="Incomes" asp-action="Index">Income Report</a>
+                                <a class="dropdown-item" asp-controller="Reports" asp-action="IncomeReport">Income Report</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Expenses</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" asp-controller="Expenses" asp-action="Create">Record Expenses</a>
-                                <a class="dropdown-item" asp-controller="Expenses" asp-action="Index">Expenses Report</a>
+                                <a class="dropdown-item" asp-controller="Reports" asp-action="ExpensesReport">Expenses Report</a>
                             </div>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Receivable</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" asp-controller="Receivables" asp-action="Create">Record receivable</a>
-                                <a class="dropdown-item" asp-controller="Receivables" asp-action="Index">Receivable Report</a>
+                                <a class="dropdown-item" asp-controller="Reports" asp-action="ReceivableReport">Receivable Report</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Payable</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" asp-controller="Payables" asp-action="Create">Record Payable</a>
-                                <a class="dropdown-item" asp-controller="Payables" asp-action="Index">Payable Report</a>
+                                <a class="dropdown-item" asp-controller="Reports" asp-action="PayableReport">Payable Report</a>
                             </div>
                         </li>
                      
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Reports</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item">Income Detailed report</a>
+                                <a class="dropdown-item" asp-controller="Reports" asp-action="IncomeExpenses">Income & Expenses report</a>
                                 <a class="dropdown-item">Expenses Detailed report</a>
                                 <a class="dropdown-item">Cash report</a>
                                 <a class="dropdown-item">Bank report</a>

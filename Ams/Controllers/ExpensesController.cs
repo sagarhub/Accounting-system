@@ -23,12 +23,7 @@ namespace Ams.Controllers
         }
 
         // GET: Expenses
-        public async Task<IActionResult> Index()
-        {
-              return _context.expenses != null ? 
-                          View(await _context.expenses.ToListAsync()) :
-                          Problem("Entity set 'AppDbContext.expenses'  is null.");
-        }
+      
 
         // GET: Expenses/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -84,7 +79,7 @@ namespace Ams.Controllers
                 await _context.SaveChangesAsync();
                 tx.Complete();
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("ExpensesReport","Reports");
         }
 
         // GET: Expenses/Edit/5
