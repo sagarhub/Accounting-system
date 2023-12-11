@@ -17,14 +17,14 @@ namespace Ams.Repository
         public async Task<List<IncomeExpensesReportDto>> GetIncomeExpensesReportsAsync()
         {
             using var conn = connectionProvider.GetConnection();
-            var IncomeQuery = @"SELECT i.""Id"",l.""Ledger_name"" ,sum(i.""amount"")as amount,l.code,i.""remarks""  FROM income i join ""Ledgers"" l on l.""Id"" =i.""IncomeLedger"" group by (l.""Ledger_name"",l.code,i.""Id"")  ";
+            var IncomeQuery = @"SELECT l.""Ledger_name"" ,sum(i.""amount"")as amount,l.""code""  FROM income i join ""Ledgers"" l on l.""Id"" =i.""IncomeLedger"" group by (l.""Ledger_name"",l.code)  ";
 
             return (await conn.QueryAsync<IncomeExpensesReportDto>(IncomeQuery)).ToList();
         }
         public async Task<List<ExpenseReportDto>>GetExpenseReportsAsync()
         {
             using var conn = connectionProvider.GetConnection();
-            var ExpensesQuery = @"select e.""Id"", l.""Ledger_name""  ,sum(e.amount) as amount,e.""remarks"" from ""Expenses"" e join ""Ledgers"" l on l.""Id"" = e.""ExpensesLedger"" group by (l.""Ledger_name"",l.code,e.""Id"") ";
+            var ExpensesQuery = @"select  l.""Ledger_name""  ,sum(e.amount) as amount from ""Expenses"" e join ""Ledgers"" l on l.""Id"" = e.""ExpensesLedger"" group by (l.""Ledger_name"") ";
             return (await conn.QueryAsync<ExpenseReportDto>(ExpensesQuery)).ToList();
         }
         public async Task<List<ReceivableReportDto>> GetReceivableReportsAsync() 

@@ -3,12 +3,31 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }.
+
+
 <div class="row">
-    <div class="col-6">
+    <div class="col-2">
+        <div class="form-group">
+        <label for=" ">Date from</label>
+        <input  class="form-control" type="date" />
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="form-group">
+            <label for="">Date to</label>
+            <input class="form-control" type="date" />
+        </div>
+    </div>
+    </div>
+    <div class="row" style="margin-top:3%;">
+        <h3 style="text-align:center;">Income & Expenses Report</h3>
+    <div class="col-6 p-0">
+        
 <table class="table table-bordered  table-hover table-sn">
    
     <thead> 
-                <tr>
+        
+                <tr class="table-secondary">
                     <th class="text-left" colspan="3">
                         Income
                     </th>
@@ -33,11 +52,11 @@
     </tbody>
 </table>
 </div>
-<div class="col-6">
+<div class="col-6 p-0">
     <table class="table table-bordered  table-hover table-sn ">
 
         <thead>
-                <tr>
+                <tr class="table-secondary">
                     <th class="text-left" colspan="3">
                         Expenses
                     </th>
@@ -55,6 +74,7 @@
             {
                 <tr>
                     <td>@ExpensesReport.Ledger_name</td>
+                    <td>@ExpensesReport.code</td>
                     <td>@ExpensesReport.amount</td>
                 </tr>
             }
@@ -63,6 +83,6 @@
 
     </div>
 
+    </div>
 
-</div>
-      
+
