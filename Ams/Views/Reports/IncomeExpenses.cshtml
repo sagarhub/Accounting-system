@@ -21,8 +21,14 @@
     </div>
     <div class="row" style="margin-top:3%;">
         <h3 style="text-align:center;">Income & Expenses Report</h3>
+        @foreach(var item in Model.CashBanks)
+        {
+    <p style="color:limegreen">Opening cash = </p>
+    <p style="color:limegreen">Opening Bank</p>
+        }
     <div class="col-6 p-0">
         
+
 <table class="table table-bordered  table-hover table-sn">
    
     <thead> 
@@ -49,6 +55,11 @@
         <td>@IncomeExpensesReport.amount</td>
         </tr>
         }
+
+        <tr>
+            <th class="text-left" colspan="2">Total</th>
+        </tr>
+        
     </tbody>
 </table>
 </div>
@@ -78,11 +89,21 @@
                     <td>@ExpensesReport.amount</td>
                 </tr>
             }
+                <tr>
+                    <th class="text-left" colspan="2">Total</th>
+                </tr>
         </tbody>
     </table>
 
     </div>
-
+    @foreach (var item in Model.CashBanks)
+    {
+    <p style="color:red;text-align:right">Closing cash = Rs.@item.remaining_cash</p>
+    }
+    @foreach( var item in Model.cashBanks)
+    {
+    <p style="color:red; text-align:right">Closing bank = Rs.@item.remaining_bank</p>
+    }
     </div>
 
 

@@ -41,11 +41,12 @@
             <th>
                 Date
             </th>
-            <th>
-                Amount
-            </th>
+            
             <th>
                 Receivable Ledger
+            </th>
+            <th>
+                Amount
             </th>
             <th>
                 Cash/Bank
@@ -64,11 +65,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.date)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.amount)
-            </td>
+            
                 <td>
                     @Html.DisplayFor(modelItem => item.ReceivableLedger)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.amount)
                 </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ledger_name)
@@ -79,8 +81,7 @@
            
            
                 <td>
-                    <a class="btn btn-outline-primary btn-sm" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .75rem; border-radius:7px;" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                    <a class="btn btn-outline-primary btn-sm" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .75rem; border-radius:7px;" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-outline-primary btn-sm" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .75rem; border-radius:7px;" asp-action="Details" asp-route-id="@item.Id">Receipt</a>
                     <a class="btn btn-outline-danger btn-sm" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .75rem; border-radius:7px;" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
         </tr>

@@ -41,11 +41,15 @@
             <th>
                 Date
             </th>
+            
+            <th>
+                Ledger
+            </th>
             <th>
                 Amount
             </th>
             <th>
-                Ledger
+                Cash/Bank
             </th>
             <th>
                 Remarks
@@ -56,18 +60,22 @@ Actions
         </tr>
     </thead>
     <tbody>
-        @foreach (var IncomeReport in Model.IncomeExpensesReports)
+        @foreach (var IncomeReport in Model.incomes)
         {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => IncomeReport.date)
             </td>
+            
             <td>
-                @Html.DisplayFor(modelItem => IncomeReport.amount)
+                @Html.DisplayFor(modelItem => IncomeReport.IncomeLedger)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => IncomeReport.Ledger_name)
-            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => IncomeReport.amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => IncomeReport.Ledger_name)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => IncomeReport.remarks)
             </td>

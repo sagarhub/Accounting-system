@@ -236,6 +236,78 @@ namespace Ams.Migrations
                     b.ToTable("paybles");
                 });
 
+            modelBuilder.Entity("Ams.Models.Payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("PayableLedger")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("amount")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("ledger_id")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("rec_status")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("remarks")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("user_id")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Payment");
+                });
+
+            modelBuilder.Entity("Ams.Models.Receipt", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ReceivableLedger")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("amount")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("ledger_id")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("rec_status")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("remarks")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("user_id")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Receipt");
+                });
+
             modelBuilder.Entity("Ams.Models.Receivable", b =>
                 {
                     b.Property<int>("Id")
@@ -280,13 +352,13 @@ namespace Ams.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("cr")
+                    b.Property<int>("amount")
                         .HasColumnType("integer");
 
-                    b.Property<int>("dr")
+                    b.Property<int>("cr_ledger")
                         .HasColumnType("integer");
 
-                    b.Property<int>("ledger_id")
+                    b.Property<int>("dr_ledger")
                         .HasColumnType("integer");
 
                     b.Property<string>("rec_status")
@@ -300,9 +372,29 @@ namespace Ams.Migrations
                     b.Property<DateTime>("transaction_date")
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<int>("type")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
 
                     b.ToTable("transactions");
+                });
+
+            modelBuilder.Entity("Ams.Models.TxnType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("txnTypes");
                 });
 
             modelBuilder.Entity("Ams.Models.User", b =>

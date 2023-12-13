@@ -22,6 +22,9 @@ namespace Ams.Controllers
             {
                 IncomeExpensesReports = await _reportsRepo.GetIncomeExpensesReportsAsync(),
                 ExpenseReports = await _reportsRepo.GetExpenseReportsAsync(),
+                CashBanks = await _reportsRepo.GetCashBanksAsync(),
+                cashBanks = await _reportsRepo.GetBanksAsync(),
+                
             };
             return View(vm);
         }
@@ -31,7 +34,7 @@ namespace Ams.Controllers
             var vm = new IncomeExpensesReportVm
             {
                 IncomeExpensesReports = await _reportsRepo.GetIncomeExpensesReportsAsync(),
-                ExpenseReports = await _reportsRepo.GetExpenseReportsAsync(),
+                incomes = await _reportsRepo.GetIncomesAsync(),
             };
             return View(vm);
         }
@@ -41,7 +44,8 @@ namespace Ams.Controllers
             var vm = new IncomeExpensesReportVm
             {
                 IncomeExpensesReports = await _reportsRepo.GetIncomeExpensesReportsAsync(),
-                ExpenseReports = await _reportsRepo.GetExpenseReportsAsync(),
+                expenses = await _reportsRepo.GetexpesesAsync(),    
+                
             };
             return View(vm);
         }
@@ -63,5 +67,31 @@ namespace Ams.Controllers
             return View(vm);
 
         }
+        public async Task<IActionResult> PaymentReport()
+        {
+            var vm = new IncomeExpensesReportVm
+            {
+                PaymentReports = await _reportsRepo.GetPaymentReportsAsync(),
+            };
+            return View(vm);
+        }
+        public async Task<IActionResult> ReceiptReport()
+        {
+            var vm = new IncomeExpensesReportVm
+            {
+                receiptReports = await _reportsRepo.GetReceiptReportAsync(),
+            };
+            return View(vm);
+        }
+        public async Task<IActionResult> PayableReceivable()
+        {
+            var vm = new IncomeExpensesReportVm
+            {
+                payableReports = await _reportsRepo.GetRemainingPayableAsync(),
+                receivableReports = await _reportsRepo.GetRemainingReceivableAsync(),
+            };
+            return View(vm);
+        }
+
     }
 }

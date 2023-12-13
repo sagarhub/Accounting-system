@@ -76,6 +76,19 @@ namespace Ams.Controllers
 
                 _context.payables.Add(payable);
                 await _context.SaveChangesAsync();
+
+                var TxnEntry = new Transactions
+                {
+                    transaction_date = payable.date,
+                    dr_ledger = payable.ledger_id,
+                    cr_ledger = payable.PayableLedger,
+                    
+                    amount = payable.amount,
+                    remarks = payable.remarks,
+                    type = 3,
+                };
+                _context.transactions.Add(TxnEntry);
+                await _context.SaveChangesAsync();
                 tx.Complete();
             }
             return RedirectToAction("PayableReport","Reports");

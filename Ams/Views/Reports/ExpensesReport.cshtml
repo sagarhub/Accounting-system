@@ -40,11 +40,15 @@
             <th>
                 Date
             </th>
-            <th>
-                Amount
-            </th>
+            
             <th>
                 Ledger
+            </th>
+            <th>
+            Amount
+            </th>
+            <th>
+                Cash/Bank
             </th>
             <th>
                 Remarks
@@ -55,18 +59,21 @@
         </tr>
     
     <tbody>
-@foreach (var item in Model.ExpenseReports) {
+@foreach (var item in Model.expenses) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.date)
             </td>
+            
             <td>
-                @Html.DisplayFor(modelItem => item.amount)
+                @Html.DisplayFor(modelItem => item.ExpensesLedger)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ledger_name)
-            </td>
-          
+                <td>
+                        @Html.DisplayFor(modelItem => item.amount)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.Ledger_name)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.remarks)
             </td>

@@ -77,6 +77,21 @@ namespace Ams.Controllers
 
                 _context.expenses.Add(expenses);
                 await _context.SaveChangesAsync();
+
+                var TxnEntry = new Transactions
+                {
+                    transaction_date = expenses.date,
+                    dr_ledger = expenses.ExpensesLedger,
+                    cr_ledger = expenses.ledger_id,
+                    amount = expenses.amount,
+                    
+                    remarks = expenses.remarks,
+                    type = 2,
+                };
+                _context.transactions.Add(TxnEntry);
+                await _context.SaveChangesAsync();
+
+
                 tx.Complete();
             }
             return RedirectToAction("ExpensesReport","Reports");

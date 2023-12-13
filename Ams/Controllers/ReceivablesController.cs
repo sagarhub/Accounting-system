@@ -75,6 +75,19 @@ namespace Ams.Controllers
 
                 _context.receivables.Add(receivable);
                 await _context.SaveChangesAsync();
+
+                var TxnEntry = new Transactions
+                {
+                    transaction_date = receivable.date,
+                    dr_ledger = receivable.ReceivableLedger,
+                    cr_ledger = receivable.ledger_id,
+                    amount = receivable.amount,
+                   
+                    remarks = receivable.remarks,
+                    type = 4,
+                };
+                _context.transactions.Add(TxnEntry);
+                await _context.SaveChangesAsync();
                 tx.Complete();
             }
             return RedirectToAction("ReceivableReport","Reports");

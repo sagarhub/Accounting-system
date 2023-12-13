@@ -70,14 +70,31 @@
                                 <a class="dropdown-item" asp-controller="Reports" asp-action="PayableReport">Payable Report</a>
                             </div>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Payment</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-controller="Payments" asp-action="Create">Record Payment</a>
+                                <a class="dropdown-item" asp-controller="Reports" asp-action="PaymentReport">Payment Report</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Receipt</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-controller="Receipts" asp-action="Create">Record Receipt</a>
+                                <a class="dropdown-item" asp-controller="Reports" asp-action="ReceiptReport">Receipt Report</a>
+                            </div>
+                        </li>
                      
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Reports</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" asp-controller="Reports" asp-action="IncomeExpenses">Income & Expenses report</a>
-                                <a class="dropdown-item">Expenses Detailed report</a>
-                                <a class="dropdown-item">Cash report</a>
-                                <a class="dropdown-item">Bank report</a>
+                                <a class="dropdown-item" asp-controller="Reports" asp-action="PayableReceivable">Payable & Receivable</a>
+
+                                <a class="dropdown-item">Cash Statement</a>
+                                <a class="dropdown-item">Bank Statement</a>
+
+                                <a class="dropdown-item">All transactions</a>
                                 
 
 

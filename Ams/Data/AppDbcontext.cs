@@ -25,6 +25,9 @@ namespace Ams.Data
                 .HaveColumnType("timestamp without time zone");
         }
         public DbSet<Transactions> transactions { get; set; }
+        public DbSet<TxnType> txnTypes { get; set; }
+        public DbSet<Payment> payments { get; set; }
+        public DbSet<Receipt> receipts { get; set; }
 
     }
 }

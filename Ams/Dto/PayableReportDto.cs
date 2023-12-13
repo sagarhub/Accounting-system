@@ -10,6 +10,7 @@
         public string remarks { get; set; }
         public int user_id { get; set; }
         public string ledger_name { get; set; }
+        public decimal remaining { get; set; }
 
     }
 }

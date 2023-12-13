@@ -77,8 +77,21 @@ namespace Ams.Controllers
            
                 _context.incomes.Add(income);
                 await _context.SaveChangesAsync();
-                tx.Complete();
                 
+
+                var TxnEntry = new Transactions
+                {
+                    dr_ledger = income.ledger_id,
+                    cr_ledger = income.IncomeLedger,
+                    transaction_date = income.date,
+                    
+                    amount = income.amount,
+                    remarks = income.remarks,
+                    type = 1,
+                };
+                _context.transactions.Add(TxnEntry);
+                await _context.SaveChangesAsync();
+                tx.Complete();
             }
             return RedirectToAction("IncomeReport","Reports");
         }

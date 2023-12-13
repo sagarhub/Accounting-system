@@ -10,12 +10,14 @@ namespace Ams.Models
         [Key]
         public int Id { get; set; }
         public DateTime transaction_date { get; set; }
-        public int dr { get; set; }
-        public int cr { get; set; }
+        public int dr_ledger { get; set; }
+        public int cr_ledger { get; set; }
 
-        public int ledger_id { get; set; }
+        public int amount { get; set; }
+        
+
         public string remarks { get; set; }
-
+        public int type { get; set; }
         public string rec_status { get; set; } = "A";
 
     }
