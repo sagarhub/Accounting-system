@@ -22,5 +22,9 @@ namespace Ams.ViewModels
         public List<PayableReportDto> payableReports { get; set; }
 
         public List<ReceivableReportDto> receivableReports { get; set; }
+
+        public List<CashBankDto> CashStatement { get; set; }
+
+        public List<CashBankDto> BankStatement { get; set; }
         }
 }

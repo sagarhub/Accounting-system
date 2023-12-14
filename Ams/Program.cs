@@ -34,6 +34,7 @@ builder.Services.AddScoped<IAuthManager, AuthManager>();
 builder.Services.AddScoped<IDbConnectionProvider, DbConnectionProvider>();
 
 builder.Services.AddScoped<IReportsRepo,ReportsRepo>();
+builder.Services.AddScoped<ICurrentUserProvider, CurrentUserProvider>();
 
 var app = builder.Build();
 

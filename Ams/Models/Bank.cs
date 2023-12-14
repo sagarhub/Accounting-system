@@ -17,7 +17,7 @@ namespace Ams.Models
         public int Balance { get; set; }
         public DateTime Created_date { get; set; }
 
-        public int user_id { get; set; }
+        public long? user_id { get; set; }
         public string Remarks { get; set; }
 
         public string rec_status { get; set; } = "A";

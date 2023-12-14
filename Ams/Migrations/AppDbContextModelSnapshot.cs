@@ -60,8 +60,8 @@ namespace Ams.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("user_id")
-                        .HasColumnType("integer");
+                    b.Property<long?>("user_id")
+                        .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
@@ -211,6 +211,9 @@ namespace Ams.Migrations
                     b.Property<int>("PayableLedger")
                         .HasColumnType("integer");
 
+                    b.Property<DateTime>("Payment_date")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<int>("amount")
                         .HasColumnType("integer");
 
@@ -315,6 +318,9 @@ namespace Ams.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Receipt_date")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("ReceivableLedger")
                         .HasColumnType("integer");

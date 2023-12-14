@@ -73,7 +73,7 @@ namespace Ams.Controllers
                 payable.amount = vm.amount;
                 payable.remarks = vm.remarks;
                  payable.ledger_id= vm.ledger_id;
-
+                payable.Payment_date = vm.Payment_date;
                 _context.payables.Add(payable);
                 await _context.SaveChangesAsync();
 

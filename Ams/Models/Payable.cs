@@ -15,7 +15,7 @@ namespace Ams.Models
         public int ledger_id { get; set; }
         public string remarks { get; set; }
         public int user_id { get; set; }
-
+        public DateTime Payment_date { get; set; }
 
         public string rec_status { get; set; } = "A";
 

@@ -72,7 +72,7 @@ namespace Ams.Controllers
                 receivable.amount = vm.amount;
                 receivable.remarks = vm.remarks;
                 receivable.ledger_id = vm.ledger_id;
-
+                receivable.Receipt_date = vm.Receipt_date;
                 _context.receivables.Add(receivable);
                 await _context.SaveChangesAsync();
 

@@ -28,23 +28,23 @@ namespace Ams.Controllers
             };
             return View(vm);
         }
-        public async Task<IActionResult> IncomeReport()
+        public async Task<IActionResult> IncomeReport(DateTime? fromDate, DateTime? toDate)
         {
 
             var vm = new IncomeExpensesReportVm
             {
                 IncomeExpensesReports = await _reportsRepo.GetIncomeExpensesReportsAsync(),
-                incomes = await _reportsRepo.GetIncomesAsync(),
+                incomes = await _reportsRepo.GetIncomesAsync(fromDate, toDate),
             };
             return View(vm);
         }
-        public async Task<IActionResult> ExpensesReport()
+        public async Task<IActionResult> ExpensesReport(DateTime? fromDate, DateTime? toDate)
         {
 
             var vm = new IncomeExpensesReportVm
             {
                 IncomeExpensesReports = await _reportsRepo.GetIncomeExpensesReportsAsync(),
-                expenses = await _reportsRepo.GetexpesesAsync(),    
+                expenses = await _reportsRepo.GetexpesesAsync(fromDate, toDate),    
                 
             };
             return View(vm);
@@ -92,6 +92,26 @@ namespace Ams.Controllers
             };
             return View(vm);
         }
+
+        public async Task<IActionResult> CashStatement()
+        {
+            var vm = new IncomeExpensesReportVm
+            {
+                CashStatement = await _reportsRepo.GetCashStatementAsync(),
+            };
+            return View(vm);
+
+        }
+
+        public async Task<IActionResult> Bankstatement()
+        {
+            var vm = new IncomeExpensesReportVm
+            {
+                BankStatement = await _reportsRepo.GetBankStatementAsync(),
+            };
+            return View(vm);
+        }
+        
 
     }
 }

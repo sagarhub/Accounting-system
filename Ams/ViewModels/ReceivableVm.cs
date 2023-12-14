@@ -9,6 +9,7 @@ namespace Ams.ViewModels
         public DateTime date { get; set; }
         public int amount { get; set; }
         public int ReceivableLedger { get; set; }
+        public DateTime Receipt_date { get; set; }
 
         public string remarks { get; set; }
       public int ledger_id { get; set; }

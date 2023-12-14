@@ -13,7 +13,8 @@ namespace Ams.ViewModels
         public string remarks { get; set; }
         public int user_id { get; set; }
         public int ledger_id { get; set; }
-        
+
+        public DateTime Payment_date { get; set; }
 
         public List<Ledger> ledgers;
      

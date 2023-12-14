@@ -10,14 +10,19 @@ namespace Ams.Repository.Interfaces
         Task<List<CashBankDto>> GetCashBanksAsync();
         Task<List<CashBankDto>> GetBanksAsync();
         Task<List<PaymentReportDto>> GetPaymentReportsAsync();
-        Task<List<IncomeExpensesReportDto>> GetIncomesAsync();
+        Task<List<IncomeExpensesReportDto>> GetIncomesAsync(DateTime? fromDate, DateTime? toDate);
 
-        Task<List<IncomeExpensesReportDto>> GetexpesesAsync();
+        Task<List<IncomeExpensesReportDto>> GetexpesesAsync(DateTime? fromDate, DateTime? toDate);
         Task<List<ReceiptReportDto>> GetReceiptReportAsync();
 
         Task<List<PayableReportDto>> GetRemainingPayableAsync();
 
         Task<List<ReceivableReportDto>> GetRemainingReceivableAsync();
+        Task<List<CashBankDto>> GetCashStatementAsync();
+        Task<List<CashBankDto>> GetBankStatementAsync();
+
+
+
 
     }
 }

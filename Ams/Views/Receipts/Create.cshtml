@@ -23,7 +23,7 @@
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label asp-for="date" class="control-label">Date</label>
-                        <input type="date" asp-for="date" class="form-control" />
+                        <input type="date" asp-for="date" class="form-control" id="iDate" />
                         <span asp-validation-for="date" class="text-danger"></span>
                     </div>
                 </div>
@@ -81,4 +81,7 @@
     }
 }
 
-
+<script>
+    // Set today's date as the default value for the date field
+    document.getElementById('iDate').valueAsDate = new Date();
+</script>

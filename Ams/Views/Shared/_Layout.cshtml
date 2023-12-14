@@ -48,6 +48,7 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" asp-controller="Incomes" asp-action="Create">Record Income</a>
                                 <a class="dropdown-item" asp-controller="Reports" asp-action="IncomeReport">Income Report</a>
+                               
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -91,8 +92,8 @@
                                 <a class="dropdown-item" asp-controller="Reports" asp-action="IncomeExpenses">Income & Expenses report</a>
                                 <a class="dropdown-item" asp-controller="Reports" asp-action="PayableReceivable">Payable & Receivable</a>
 
-                                <a class="dropdown-item">Cash Statement</a>
-                                <a class="dropdown-item">Bank Statement</a>
+                                <a class="dropdown-item" asp-controller="Reports" asp-action="CashStatement">Cash Statement</a>
+                                <a class="dropdown-item" asp-controller="Reports" asp-action="BankStatement">Bank Statement</a>
 
                                 <a class="dropdown-item">All transactions</a>
                                 

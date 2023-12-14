@@ -82,19 +82,29 @@ join ""Ledgers"" l2 on  p.""PayableLedger"" = l2.""Id"" ";
             return(await conn.QueryAsync<PaymentReportDto>(PaymentQuery)).ToList();
         }
 
-        public async Task<List<IncomeExpensesReportDto>> GetIncomesAsync()
+        public async Task<List<IncomeExpensesReportDto>> GetIncomesAsync(DateTime? fromDate,DateTime? toDate)
         {
             using var conn = connectionProvider.GetConnection();
-            var IncQuery = @"select i.""date"" ,i.amount ,l.""Ledger_name"" ,l2.""Ledger_name"" as IncomeLedger ,i.remarks  from income i join ""Ledgers"" l on i.ledger_id = l.""Id"" 
-join ""Ledgers"" l2 on i.""IncomeLedger"" = l2.""Id"" ";
-            return(await conn.QueryAsync<IncomeExpensesReportDto>(IncQuery)).ToList();
+            var IncQuery = @"select cast(i.""date"" as ""date"" ),i.amount ,l.""Ledger_name"" ,l2.""Ledger_name"" as IncomeLedger ,i.remarks  from income i join ""Ledgers"" l on i.ledger_id = l.""Id"" 
+join ""Ledgers"" l2 on i.""IncomeLedger"" = l2.""Id""
+where ""date"" between @FromDate and @ToDate ";
+            return(await conn.QueryAsync<IncomeExpensesReportDto>(IncQuery,new
+            {
+                FromDate = fromDate,
+                ToDate = toDate
+            })).ToList();
         }
-         public async Task<List<IncomeExpensesReportDto>> GetexpesesAsync()
+         public async Task<List<IncomeExpensesReportDto>> GetexpesesAsync(DateTime? fromDate, DateTime? toDate)
         {
             using var conn = connectionProvider.GetConnection();
-            var ExpQuery = @"select e.""date"" ,e.amount ,l.""Ledger_name"" ,l2.""Ledger_name"" as ExpensesLedger , e.remarks from ""Expenses"" e join ""Ledgers"" l on e.ledger_id = l.""Id"" 
-join ""Ledgers"" l2 on e.""ExpensesLedger"" =l2.""Id"" ";
-            return (await conn.QueryAsync<IncomeExpensesReportDto>(ExpQuery)).ToList();
+            var ExpQuery = @"select cast(e.""date"" as ""date"" ) ,e.amount ,l.""Ledger_name"" ,l2.""Ledger_name"" as ExpensesLedger , e.remarks from ""Expenses"" e join ""Ledgers"" l on e.ledger_id = l.""Id"" 
+join ""Ledgers"" l2 on e.""ExpensesLedger"" =l2.""Id"" where ""date"" between @FromDate and @ToDate";
+            return (await conn.QueryAsync<IncomeExpensesReportDto>(ExpQuery, new
+            {
+                FromDate = fromDate,
+                ToDate = toDate
+            }
+                )).ToList();
         }
 
         public async Task<List<ReceiptReportDto>> GetReceiptReportAsync()
@@ -123,8 +133,59 @@ join ""Ledgers"" l2 on  r.""ReceivableLedger"" = l2.""Id"" ";
     group by(r.""ReceivableLedger"",r.amount,l.""Ledger_name"")";
             return (await conn.QueryAsync<ReceivableReportDto>(ReminingReceivableQuery)).ToList();   
         }
-   
+        public async Task<List<CashBankDto>> GetCashStatementAsync()
+        {
+            using var conn = connectionProvider.GetConnection();
+            var CashStatementQuery = @"SELECT
+    t.transaction_date,
+    concat( l2.""Ledger_name"",' - ' ,l.""Ledger_name"") as ledger,
+    SUM(CASE WHEN t.""type"" IN (1, 4, 6) THEN t.amount ELSE 0 END) AS dr_amount,
+    SUM(CASE WHEN t.""type"" IN (2, 3, 5) THEN t.amount ELSE 0 END) AS cr_amount,
+    tt.""Name"" as type
+FROM
+    transactions t
+JOIN
+    ""Ledgers"" l ON t.dr_ledger = l.""Id""
+JOIN
+    ""Ledgers"" l2 ON t.cr_ledger = l2.""Id""
+join ""txnTypes"" tt on t.""type"" =tt.""Id"" 
+WHERE
+    (l.""Parent_ledgerId"" = 0 OR l2.""Parent_ledgerId"" = 0)
+    AND (l.""BankId"" = 0 AND l2.""BankId"" = 0)
+GROUP BY
+    t.transaction_date,
+    l.""Ledger_name"",
+    tt.""Name"" ,
+    l2.""Ledger_name""";
+            return (await conn.QueryAsync<CashBankDto>(CashStatementQuery)).ToList();
+        }
 
+        public async Task<List<CashBankDto>> GetBankStatementAsync()
+        {
+            using var conn = connectionProvider.GetConnection();
+            var BankStatementQuery = @"SELECT
+    t.transaction_date,
+    concat( l2.""Ledger_name"",' - ' ,l.""Ledger_name"") as ledger,
+    SUM(CASE WHEN t.""type"" IN (1, 4, 6) THEN t.amount ELSE 0 END) AS dr_amount,
+    SUM(CASE WHEN t.""type"" IN (2, 3, 5) THEN t.amount ELSE 0 END) AS cr_amount,
+    tt.""Name"" as type
+FROM
+    transactions t
+JOIN
+    ""Ledgers"" l ON t.dr_ledger = l.""Id""
+JOIN
+    ""Ledgers"" l2 ON t.cr_ledger = l2.""Id""
+join ""txnTypes"" tt on t.""type"" =tt.""Id"" 
+WHERE
+    (l.""Parent_ledgerId"" = 0 OR l2.""Parent_ledgerId"" = 0)
+    AND (l.""BankId"" != 0 or l2.""BankId"" != 0)
+GROUP BY
+    t.transaction_date,
+    l.""Ledger_name"",
+    tt.""Name"" ,
+    l2.""Ledger_name""";
+            return (await conn.QueryAsync<CashBankDto>(BankStatementQuery)).ToList();
+        }
 
-}
+    }
 }

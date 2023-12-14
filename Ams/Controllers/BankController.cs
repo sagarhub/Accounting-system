@@ -10,18 +10,22 @@ using Ams.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Ams.View_Models;
 using Ams.ViewModels;
+using Ams.Provider.Interfaces;
 
 namespace Ams.Controllers
 {
     public class BankController : Controller
     {
         private readonly AppDbContext _context;
-
-        public BankController(AppDbContext context)
+        private readonly ICurrentUserProvider _currentUserProvider;
+        public BankController(AppDbContext context, ICurrentUserProvider currentUserProvider)
         {
             _context = context;
+            _currentUserProvider = currentUserProvider;
         }
-
+        
+        
+        
         // GET: User
         public async Task<IActionResult> Index()
         {
@@ -37,6 +41,7 @@ namespace Ams.Controllers
         [HttpPost]
         public IActionResult Create(BankVm vm)
         { 
+            long? CurrentUserId = _currentUserProvider.GetCurrentUserId();
             {
                 if (ModelState.IsValid)
                 {
@@ -53,7 +58,7 @@ namespace Ams.Controllers
                             Created_date = DateTime.UtcNow,
                             Remarks = vm.Remarks,
                             Balance = vm.Balance,
-
+                            user_id = CurrentUserId,
 
                         };
                         _context.banks.Add(bank);

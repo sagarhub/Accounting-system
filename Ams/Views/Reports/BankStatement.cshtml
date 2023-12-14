@@ -1,0 +1,85 @@
+﻿@model Ams.ViewModels.IncomeExpensesReportVm
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" style="margin-top: 1%;">
+    <div class="col-2">
+        <div class="form-group">
+            <label for="">Ledger</label>
+            <select class="typeahead form-control" name="name_search">
+                <option value="">Select</option>
+
+
+
+            </select>
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="form-group">
+            <label for="">Code</label>
+            <input type="text" />
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+<h3 style="text-align:center">Bank Statement</h3>
+
+<p>
+    <button class="btn-primary"><a asp-action="Create"></a>Create New</button>
+</p>
+<table class="table table-bordered table-striped table-hover table-sn ">
+    <thead>
+        <tr class="table-primary">
+            <th>
+                Date
+            </th>
+
+            <th>
+                Ledger
+            </th>
+
+            <th>
+                Dr
+            </th>
+            <th>
+                Cr
+            </th>
+            <th>
+                Transaction type
+            </th>
+
+        </tr>
+
+    <tbody>
+            @foreach (var item in Model.BankStatement)
+            {
+            <tr>
+                <td>
+                        @Html.DisplayFor(modelItem => item.date)
+                </td>
+
+                <td>
+                        @Html.DisplayFor(modelItem => item.ledger)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.dr_amount)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.cr_amount)
+                </td>
+
+
+                <td>
+                        @Html.DisplayFor(modelItem => item.type)
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>
