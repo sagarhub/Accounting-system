@@ -2,22 +2,34 @@
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}.
+    DateTime DefaultDate = DateTime.Today;
+
+}
 
 
+<form method="get">
+    <div style="margin:auto; width:98%; ">
+
+    <div style="margin-top:2%">
 <div class="row">
     <div class="col-2">
         <div class="form-group">
-            <label for=" ">Date from</label>
-            <input class="form-control" type="date" />
+            <label for="fromDate">Date from</label>
+                    <input class="form-control" value="@DefaultDate.ToString("yyyy-MM-dd")" type="date" id="fromDate" name="fromDate" />
         </div>
     </div>
     <div class="col-2">
         <div class="form-group">
-            <label for="">Date to</label>
-            <input class="form-control" type="date" />
+            <label for="toDate">Date to</label>
+                    <input class="form-control" value="@DefaultDate.ToString("yyyy-MM-dd")" type="date" id="toDate" name="toDate" />
         </div>
     </div>
+    <div  class="col-2">
+        <div class="form-group">
+            <button style="margin-top:12%;" class="btn btn-primary" name="search">Go</button>
+        </div>
+    </div>
+</div>
 </div>
 <div class="row" style="margin-top:3%;">
     <h3 style="text-align:center;">Payalbe & Receivable Report</h3>
@@ -94,5 +106,5 @@
     </div>
  
 </div>
-
-
+</div>
+</form>

@@ -9,5 +9,6 @@ namespace Ams.Dto
         public string ledger_name { get; set; }    
         public decimal amount { get; set; } 
         public string remarks { get; set; }
+        public decimal current { get; set; }
     }
 }

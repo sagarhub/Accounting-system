@@ -2,23 +2,35 @@
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTime DefaultDateFrom = DateTime.Today;
+    DateTime DefaultDateto = DateTime.Today;
 }.
 
 
+<form method="get">
+    <div style="margin:auto; width:98%; ">
+
+    <div style="margin-top:2%">
 <div class="row">
     <div class="col-2">
         <div class="form-group">
-        <label for=" ">Date from</label>
-        <input  class="form-control" type="date" />
+            <label for="fromDate">Date from</label>
+                    <input class="form-control" value="@DefaultDateFrom.ToString("yyyy-MM-dd")" type="date" id="fromDate" name="fromDate" />
         </div>
     </div>
     <div class="col-2">
         <div class="form-group">
-            <label for="">Date to</label>
-            <input class="form-control" type="date" />
+            <label for="toDate">Date to</label>
+                    <input class="form-control" value="@DefaultDateto.ToString("yyyy-MM-dd")" type="date" id="toDate" name="toDate" />
         </div>
     </div>
+    <div  class="col-2">
+        <div class="form-group">
+            <button style="margin-top:12%;" class="btn btn-primary" name="search">Go</button>
+        </div>
     </div>
+</div>
+</div>
     <div class="row" style="margin-top:3%;">
         <h3 style="text-align:center;">Income & Expenses Report</h3>
         @foreach(var item in Model.CashBanks)
@@ -100,10 +112,10 @@
     {
     <p style="color:red;text-align:right">Closing cash = Rs.@item.remaining_cash</p>
     }
-    @foreach( var item in Model.cashBanks)
+    @foreach( var items in Model.cashBanks)
     {
-    <p style="color:red; text-align:right">Closing bank = Rs.@item.remaining_bank</p>
+    <p style="color:red; text-align:right">Closing bank = Rs.@items.remaining_bank</p>
     }
     </div>
-
-
+    </div>
+    </form>

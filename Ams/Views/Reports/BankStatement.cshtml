@@ -2,31 +2,31 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    DateTime DefaultDate = DateTime.Today;
 }
 
-<div class="row" style="margin-top: 1%;">
+<form method="get">
+    <div style="margin:auto; width:98%; ">
+    <div style="margin-top:2%">
+<div class="row">
     <div class="col-2">
         <div class="form-group">
-            <label for="">Ledger</label>
-            <select class="typeahead form-control" name="name_search">
-                <option value="">Select</option>
-
-
-
-            </select>
+            <label for="fromDate">Date from</label>
+                    <input class="form-control" value="@DefaultDate.ToString("yyyy-MM-dd")" type="date" id="fromDate" name="fromDate" />
         </div>
     </div>
     <div class="col-2">
         <div class="form-group">
-            <label for="">Code</label>
-            <input type="text" />
-
-
-
-
-
+            <label for="toDate">Date to</label>
+                    <input class="form-control" value="@DefaultDate.ToString("yyyy-MM-dd")" type="date" id="toDate" name="toDate" />
         </div>
     </div>
+    <div  class="col-2">
+        <div class="form-group">
+            <button style="margin-top:12%;" class="btn btn-primary" name="search">Go</button>
+        </div>
+    </div>
+</div>
 </div>
 
 <h3 style="text-align:center">Bank Statement</h3>
@@ -83,3 +83,5 @@
             }
     </tbody>
 </table>
+</div>
+</form>

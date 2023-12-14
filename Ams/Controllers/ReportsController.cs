@@ -15,102 +15,122 @@ namespace Ams.Controllers
         }
          
     
-        public async Task<IActionResult> IncomeExpenses()
+        public async Task<IActionResult> IncomeExpenses(DateTime? fromDate, DateTime? toDate)
         {
+            fromDate ??= DateTime.Today;
+            toDate ??= DateTime.Today;
 
             var vm = new IncomeExpensesReportVm
             {
-                IncomeExpensesReports = await _reportsRepo.GetIncomeExpensesReportsAsync(),
-                ExpenseReports = await _reportsRepo.GetExpenseReportsAsync(),
-                CashBanks = await _reportsRepo.GetCashBanksAsync(),
-                cashBanks = await _reportsRepo.GetBanksAsync(),
+                IncomeExpensesReports = await _reportsRepo.GetIncomeExpensesReportsAsync(fromDate,  toDate),
+                ExpenseReports = await _reportsRepo.GetExpenseReportsAsync(fromDate, toDate),
+                CashBanks = await _reportsRepo.GetCashBanksAsync( fromDate,toDate),
+                cashBanks = await _reportsRepo.GetBanksAsync(fromDate, toDate),
                 
             };
             return View(vm);
         }
         public async Task<IActionResult> IncomeReport(DateTime? fromDate, DateTime? toDate)
         {
-
+            fromDate ??= DateTime.Today;
+            toDate ??= DateTime.Today;
             var vm = new IncomeExpensesReportVm
             {
-                IncomeExpensesReports = await _reportsRepo.GetIncomeExpensesReportsAsync(),
+                IncomeExpensesReports = await _reportsRepo.GetIncomeExpensesReportsAsync(fromDate, toDate),
                 incomes = await _reportsRepo.GetIncomesAsync(fromDate, toDate),
             };
             return View(vm);
         }
         public async Task<IActionResult> ExpensesReport(DateTime? fromDate, DateTime? toDate)
         {
+            fromDate ??= DateTime.Today;
+            toDate ??= DateTime.Today;
 
             var vm = new IncomeExpensesReportVm
             {
-                IncomeExpensesReports = await _reportsRepo.GetIncomeExpensesReportsAsync(),
+                IncomeExpensesReports = await _reportsRepo.GetIncomeExpensesReportsAsync(fromDate, toDate),
                 expenses = await _reportsRepo.GetexpesesAsync(fromDate, toDate),    
                 
             };
             return View(vm);
         }
-        public async Task<IActionResult> PayableReport()
+        public async Task<IActionResult> PayableReport(DateTime? fromDate, DateTime? toDate)
         {
+            fromDate ??= DateTime.Today;
+            toDate ??= DateTime.Today;
             var vm = new IncomeExpensesReportVm
             {
-                PayableReports = await _reportsRepo.GetPayableReportsAsync(),
+                PayableReports = await _reportsRepo.GetPayableReportsAsync(fromDate, toDate),
 
             };
             return View(vm);
         }
-        public async Task<IActionResult> ReceivableReport()
+        public async Task<IActionResult> ReceivableReport(DateTime? fromDate, DateTime? toDate)
         {
+            fromDate ??= DateTime.Today;
+            toDate ??= DateTime.Today;
             var vm = new IncomeExpensesReportVm
             {
-                ReceivableReports = await _reportsRepo.GetReceivableReportsAsync(),
+                ReceivableReports = await _reportsRepo.GetReceivableReportsAsync(fromDate, toDate),
             };
             return View(vm);
 
         }
-        public async Task<IActionResult> PaymentReport()
+        public async Task<IActionResult> PaymentReport(DateTime? fromDate, DateTime? toDate)
         {
+            fromDate ??= DateTime.Today;
+            toDate ??= DateTime.Today;
             var vm = new IncomeExpensesReportVm
             {
-                PaymentReports = await _reportsRepo.GetPaymentReportsAsync(),
+                PaymentReports = await _reportsRepo.GetPaymentReportsAsync(fromDate, toDate),
             };
             return View(vm);
         }
-        public async Task<IActionResult> ReceiptReport()
+        public async Task<IActionResult> ReceiptReport(DateTime? fromDate, DateTime? toDate)
         {
+            fromDate ??= DateTime.Today;
+            toDate ??= DateTime.Today;
             var vm = new IncomeExpensesReportVm
             {
-                receiptReports = await _reportsRepo.GetReceiptReportAsync(),
+                receiptReports = await _reportsRepo.GetReceiptReportAsync(fromDate, toDate),
             };
             return View(vm);
         }
-        public async Task<IActionResult> PayableReceivable()
+        public async Task<IActionResult> PayableReceivable(DateTime? fromDate, DateTime? toDate)
         {
+            fromDate ??= DateTime.Today;
+            toDate ??= DateTime.Today;
             var vm = new IncomeExpensesReportVm
             {
-                payableReports = await _reportsRepo.GetRemainingPayableAsync(),
-                receivableReports = await _reportsRepo.GetRemainingReceivableAsync(),
+                payableReports = await _reportsRepo.GetRemainingPayableAsync(fromDate, toDate),
+                receivableReports = await _reportsRepo.GetRemainingReceivableAsync(fromDate, toDate),
             };
             return View(vm);
         }
 
-        public async Task<IActionResult> CashStatement()
+        public async Task<IActionResult> CashStatement(DateTime? fromDate, DateTime? toDate)
         {
+            fromDate ??= DateTime.Today;
+            toDate ??= DateTime.Today;
             var vm = new IncomeExpensesReportVm
             {
-                CashStatement = await _reportsRepo.GetCashStatementAsync(),
+                CashStatement = await _reportsRepo.GetCashStatementAsync(fromDate, toDate),
             };
             return View(vm);
 
         }
 
-        public async Task<IActionResult> Bankstatement()
+        public async Task<IActionResult> Bankstatement(DateTime? fromDate, DateTime? toDate)
         {
+            fromDate ??= DateTime.Today;
+            toDate ??= DateTime.Today;
             var vm = new IncomeExpensesReportVm
             {
-                BankStatement = await _reportsRepo.GetBankStatementAsync(),
+                BankStatement = await _reportsRepo.GetBankStatementAsync(fromDate, toDate),
             };
             return View(vm);
         }
+        
         
 
     }

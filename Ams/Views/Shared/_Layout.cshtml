@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Ams.styles.css" asp-append-version="true" />
-
+    <link rel="stylesheet" href="~/font-awesome-4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/css/Select2.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     
 </head>
@@ -16,7 +17,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#2e73a5;">
             <div class="container-fluid">
-                <a style="font-size: 20px;" class="navbar-brand" href="#">AMS</a>
+                <a style="font-size: 20px;" class="navbar-brand" asp-controller="Home" asp-action="Index">AMS</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -95,7 +96,7 @@
                                 <a class="dropdown-item" asp-controller="Reports" asp-action="CashStatement">Cash Statement</a>
                                 <a class="dropdown-item" asp-controller="Reports" asp-action="BankStatement">Bank Statement</a>
 
-                                <a class="dropdown-item">All transactions</a>
+                             
                                 
 
 
@@ -123,7 +124,7 @@
                             <li>
                                 <!-- <img style="margin-top: 4px;" src="assets/icons8-customer-32.png" width="30px" height="27px"> -->
                             </li>
-                            <li class="nav-item dropdown">
+                            <!--<li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle active " data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle" style="margin-top:3px;"></i> </a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item">Profile</a>
@@ -134,7 +135,7 @@
                                 <a class="nav-link active" href="#">
                                     About
                                     <span class="visually-hidden">(current)</span>
-                                </a>
+                            </a>-->
                         </ul>
                         
 
@@ -146,7 +147,7 @@
         </nav>
     </header>
 
-    <div class="container">
+    <div class="">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

@@ -10,5 +10,6 @@
         public decimal code { get; set; }
         public string remarks { get; set; }
         public int Id { get; set; }
+        public decimal current { get; set; }    
     }
 }

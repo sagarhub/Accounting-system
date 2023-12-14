@@ -3,23 +3,28 @@ namespace Ams.Repository.Interfaces
 {
     public interface IReportsRepo
     {
-        Task<List<IncomeExpensesReportDto>> GetIncomeExpensesReportsAsync();
-        Task<List<ExpenseReportDto>>GetExpenseReportsAsync();
-        Task<List<PayableReportDto>> GetPayableReportsAsync();
-        Task<List<ReceivableReportDto>> GetReceivableReportsAsync();
-        Task<List<CashBankDto>> GetCashBanksAsync();
-        Task<List<CashBankDto>> GetBanksAsync();
-        Task<List<PaymentReportDto>> GetPaymentReportsAsync();
+        Task<List<IncomeExpensesReportDto>> GetIncomeExpensesReportsAsync(DateTime? fromDate, DateTime? toDate);
+        Task<List<ExpenseReportDto>>GetExpenseReportsAsync(DateTime? fromDate, DateTime? toDate);
+        Task<List<PayableReportDto>> GetPayableReportsAsync(DateTime? fromDate, DateTime? toDate);
+        Task<List<ReceivableReportDto>> GetReceivableReportsAsync(DateTime? fromDate, DateTime? toDate);
+        Task<List<CashBankDto>> GetCashBanksAsync(DateTime? fromDate, DateTime? toDate);
+        Task<List<CashBankDto>> GetBanksAsync(DateTime? fromDate, DateTime? toDate);
+        Task<List<PaymentReportDto>> GetPaymentReportsAsync(DateTime? fromDate, DateTime? toDate);
         Task<List<IncomeExpensesReportDto>> GetIncomesAsync(DateTime? fromDate, DateTime? toDate);
 
         Task<List<IncomeExpensesReportDto>> GetexpesesAsync(DateTime? fromDate, DateTime? toDate);
-        Task<List<ReceiptReportDto>> GetReceiptReportAsync();
+        Task<List<ReceiptReportDto>> GetReceiptReportAsync(DateTime? fromDate, DateTime? toDate);
 
-        Task<List<PayableReportDto>> GetRemainingPayableAsync();
+        Task<List<PayableReportDto>> GetRemainingPayableAsync(DateTime? fromDate, DateTime? toDate);
 
-        Task<List<ReceivableReportDto>> GetRemainingReceivableAsync();
-        Task<List<CashBankDto>> GetCashStatementAsync();
-        Task<List<CashBankDto>> GetBankStatementAsync();
+        Task<List<ReceivableReportDto>> GetRemainingReceivableAsync(DateTime? fromDate, DateTime? toDate);
+        Task<List<CashBankDto>> GetCashStatementAsync(DateTime? fromDate, DateTime? toDate);
+        Task<List<CashBankDto>> GetBankStatementAsync(DateTime? fromDate, DateTime? toDate);
+     Task<List<ExpenseReportDto>> GetCurrentExpenses();
+        Task<List<IncomeExpensesReportDto>> GetCurrentIncome();
+        Task<List<PaymentReportDto>> GetCurrentPayment();
+        Task<List<ReceiptReportDto>> GetCurrentReceipt();
+        Task<List<CashBankDto>> GetRemCashAsync();
 
 
 

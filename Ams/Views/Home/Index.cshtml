@@ -1,8 +1,8 @@
-﻿@{
+﻿@model Ams.ViewModels.IncomeExpensesReportVm
+@{
     ViewData["Title"] = "Home Page";
     Layout = "_Layout";
 }
-
 <div style="width:90%; margin:20px 15px;">
     <div class="row">
         <div class="col-sm-2">
@@ -10,8 +10,10 @@
                 <div class="card-body">
 
 
-
-                    <h3 class="card-title"><i class="fa-solid fa-money-bill-1-wave" style="margin-right:10px; "></i>Rs.<?= $result ?> </h3>
+                    @foreach(var item in Model.CurrentExp)
+                    {
+                    <h3 class="card-title"><i class="fa-solid fa-money-bill-1-wave" style="margin-right:10px; "></i>Rs.@item.current </h3>
+                    }
                     <h7 class="card-text">Total Expenses</h7>
 
 
@@ -24,8 +26,10 @@
                 <div class="card-body">
 
 
-
-                    <h3 class="card-title"><i class="fa-solid fa-money-bill-1-wave" style="margin-right:10px; "></i>Rs.<?= $result ?> </h3>
+                    @foreach (var item in Model.currentInc)
+                    {
+                    <h3 class="card-title"><i class="fa-solid fa-money-bill-1-wave" style="margin-right:10px; "></i>Rs.@item.current</h3>
+                    }
                     <h7 class="card-text">Total Income</h7>
 
 
@@ -38,8 +42,10 @@
                 <div class="card-body">
 
 
-
-                    <h3 class="card-title"><i class="fa-solid fa-money-bill-1-wave" style="margin-right:10px; "></i>Rs.<?= $result ?> </h3>
+                    @foreach (var item in Model.currentpmt)
+                    {
+                    <h3 class="card-title"><i class="fa-solid fa-money-bill-1-wave" style="margin-right:10px; "></i>Rs.@item.current </h3>
+                    }
                     <h7 class="card-text">Total Payment</h7>
 
 
@@ -52,8 +58,10 @@
                 <div class="card-body">
 
 
-
-                    <h3 class="card-title"><i class="fa-solid fa-money-bill-1-wave" style="margin-right:10px; "></i>Rs.<?= $result ?> </h3>
+                    @foreach(var item in Model.currentrcpt)
+                    {
+                    <h3 class="card-title"><i class="fa-solid fa-money-bill-1-wave" style="margin-right:10px; "></i>Rs.@item.current </h3>
+                    }
                     <h7 class="card-text">Total Receipt</h7>
 
 
@@ -66,8 +74,10 @@
                 <div class="card-body">
 
 
-
-                    <h3 class="card-title"><i class="fa-solid fa-money-bill-1-wave" style="margin-right:10px; "></i>Rs.<?= $result ?> </h3>
+                    @foreach(var item in Model.currentCash)
+                    {
+                    <h3 class="card-title"><i class="fa-solid fa-money-bill-1-wave" style="margin-right:10px; "></i>Rs.@item.remaining_cash </h3>
+                    }
                     <h7 class="card-text">Remaining Cash</h7>
 
 
@@ -76,4 +86,74 @@
             </a>
         </div>
         </div>
+  
+    <div style="display:flex;">
+        <div class="card" style="width:50%;  margin-left:1%; margin-top:2%;">
+        <h6 style="text-align: center; font-weight:bold; margin-top:2%;" class="card-title">Income & Expenses</h6>
+        <canvas id="chart4"></canvas>
         </div>
+         <div class="card" style="width:50%;  margin-left:1%; margin-top:2%;">
+        <h6 style="text-align: center; font-weight:bold; margin-top:2%;" class="card-title">Income & Expenses</h6>
+        <canvas id="chart1"></canvas>
+        </div>
+    </div>
+    </div>
+   
+ 
+        
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        createChart4();
+        createChart1();
+    });
+
+    function createChart4() {
+        var data = {
+            labels: ['Expenses', 'Income'],
+            datasets: [{
+                label: 'Transaction Count',
+                data: [1, 4],
+                backgroundColor: ['rgb(255, 99, 132)', 'rgb(50,205,50)'],
+                hoverOffset: 4
+            }]
+        };
+
+        const config = {
+            type: 'doughnut',
+            data: data,
+            options: {
+                aspectRatio: 2
+            }
+        };
+
+        const ctx = document.getElementById('chart4').getContext('2d');
+        var chart4 = new Chart(ctx, config);
+    }
+
+    function createChart1() {
+        var labels = ['January', 'February', 'March', 'April', 'May'];
+        var data = {
+            labels: labels,
+            datasets: [{
+                label: 'Monthly Sales',
+                data: [50, 120, 200, 80, 150],
+                borderColor: 'rgba(75, 192, 192, 1)', // Line color
+                borderWidth: 2, // Line width
+                fill: false // Do not fill the area under the line
+            }]
+        };
+
+        // Configuration options
+        const config = {
+            type: 'line',
+            data: data,
+        };
+
+        // Get the canvas element
+        const ctx2 = document.getElementById('chart1').getContext('2d');
+
+        // Create the line chart
+        var chart1 = new Chart(ctx2, config);
+    }
+</script>
+
