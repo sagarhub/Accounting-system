@@ -155,7 +155,7 @@ join ""Ledgers"" l2 on  r.""ReceivableLedger"" = l2.""Id"" where r.date between 
             using var conn = connectionProvider.GetConnection();
             var RemainingPayableQuery = @" select p.""PayableLedger"" ,l.""Ledger_name"" ,
    p.amount -coalesce (sum(p2.amount),0) as remaining
-    from paybles p join ""Payment"" p2 on p.""PayableLedger"" =p2.""PayableLedger""
+    from paybles p left join ""Payment"" p2 on p.""PayableLedger"" =p2.""PayableLedger""
     join ""Ledgers"" l on p.""PayableLedger"" = l.""Id"" where p.date between @FromDate and @ToDate
     group by(p.""PayableLedger"",p.amount,l.""Ledger_name"")";
             return(await conn.QueryAsync<PayableReportDto>(RemainingPayableQuery, new
@@ -168,7 +168,7 @@ join ""Ledgers"" l2 on  r.""ReceivableLedger"" = l2.""Id"" where r.date between 
         {
             using var conn = connectionProvider.GetConnection();
             var ReminingReceivableQuery = @"select r.""ReceivableLedger"" ,l.""Ledger_name"" ,r.amount -coalesce (sum(r2.amount),0) as remaining
-    from receivables r join ""Receipt"" r2 on r.""ReceivableLedger"" =r2.""ReceivableLedger"" 
+    from receivables r left join ""Receipt"" r2 on r.""ReceivableLedger"" =r2.""ReceivableLedger"" 
     join ""Ledgers"" l on r.""ReceivableLedger"" = l.""Id"" where r.date between @FromDate and @ToDate
     group by(r.""ReceivableLedger"",r.amount,l.""Ledger_name"")";
             return (await conn.QueryAsync<ReceivableReportDto>(ReminingReceivableQuery, new
@@ -181,7 +181,7 @@ join ""Ledgers"" l2 on  r.""ReceivableLedger"" = l2.""Id"" where r.date between 
         {
             using var conn = connectionProvider.GetConnection();
             var CashStatementQuery = @"SELECT
-    t.transaction_date,
+    t.transaction_date as t_date,
     concat( l2.""Ledger_name"",' - ' ,l.""Ledger_name"") as ledger,
     SUM(CASE WHEN t.""type"" IN (1, 4, 6) THEN t.amount ELSE 0 END) AS dr_amount,
     SUM(CASE WHEN t.""type"" IN (2, 3, 5) THEN t.amount ELSE 0 END) AS cr_amount,
@@ -212,7 +212,7 @@ GROUP BY
         {
             using var conn = connectionProvider.GetConnection();
             var BankStatementQuery = @"SELECT
-    t.transaction_date,
+    t.transaction_date as t_date,
     concat( l2.""Ledger_name"",' - ' ,l.""Ledger_name"") as ledger,
     SUM(CASE WHEN t.""type"" IN (1, 4, 6) THEN t.amount ELSE 0 END) AS dr_amount,
     SUM(CASE WHEN t.""type"" IN (2, 3, 5) THEN t.amount ELSE 0 END) AS cr_amount,
@@ -350,5 +350,49 @@ ORDER BY
             return (await conn.QueryAsync<GraphicsDto>(IncGraphQuery)).ToList();
         }
 
+        public async Task<List<IncomeExpensesReportDto>> GetTotalIAsync(DateTime? fromDate, DateTime? toDate)
+        {
+            using var conn = connectionProvider.GetConnection();
+            var TotalIncQuery = @"select sum(amount) as total_income from income i  where 
+        date between @FromDate and @ToDate";
+            return (await conn.QueryAsync<IncomeExpensesReportDto>(TotalIncQuery, new
+            {
+                FromDate = fromDate,
+                ToDate = toDate
+            })).ToList();
+        }
+        public async Task<List<IncomeExpensesReportDto>> GetTotalEAsync(DateTime? fromDate, DateTime? toDate)
+        {
+            using var conn = connectionProvider.GetConnection();
+            var TotalExpQuery = @"select sum(amount) as total_expenses from ""Expenses"" e where date between @FromDate and @ToDate ";
+            return (await conn.QueryAsync<IncomeExpensesReportDto>(TotalExpQuery, new
+            {
+                FromDate = fromDate,
+                ToDate = toDate
+            })).ToList();
+        }
+        public async Task<List<IncomeExpensesReportDto>> GetTotalPayAsync(DateTime? fromDate, DateTime? toDate)
+        {
+            using var conn = connectionProvider.GetConnection();
+            var TotalpayQuery = @"select sum(amount) as total_payable from paybles  where date between @FromDate and @ToDate ";
+            return (await conn.QueryAsync<IncomeExpensesReportDto>(TotalpayQuery, new
+            {
+                FromDate = fromDate,
+                ToDate = toDate
+            })).ToList();
+        }
+        public async Task<List<IncomeExpensesReportDto>> GetTotalRecAsync(DateTime? fromDate, DateTime? toDate)
+        {
+            using var conn = connectionProvider.GetConnection();
+            var TotalRecQuery = @"select r.amount -coalesce (sum(r2.amount),0) as total_receivable
+    from receivables r  join ""Receipt"" r2 on r.""ReceivableLedger"" =r2.""ReceivableLedger"" 
+    where r.date between @FromDate and @ToDate
+    group by(r.amount)";
+            return (await conn.QueryAsync<IncomeExpensesReportDto>(TotalRecQuery, new
+            {
+                FromDate = fromDate,
+                ToDate = toDate
+            })).ToList();
+        }
     }
 }

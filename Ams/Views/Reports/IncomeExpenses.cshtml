@@ -26,7 +26,7 @@
     </div>
     <div  class="col-2">
         <div class="form-group">
-            <button style="margin-top:12%;" class="btn btn-primary" name="search">Go</button>
+            <button style="margin-top:10%;" class="btn btn-primary" name="search">Go</button>
         </div>
     </div>
 </div>
@@ -66,7 +66,10 @@
 
         <tr>
             <th class="text-left" colspan="2">Total</th>
-            <td>70000</td>
+            @foreach(var item in Model.Tincome)
+            {
+            <td>@item.total_income</td>
+            }
         </tr>
         
     </tbody>
@@ -100,7 +103,10 @@
             }
                 <tr>
                     <th class="text-left" colspan="2">Total</th>
-                            <td>2000</td>
+                            @foreach (var item in Model.Texpenses)
+                            {
+                                <td>@item.total_expenses</td>
+                            }
                 </tr>
                 
         </tbody>

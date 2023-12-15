@@ -29,6 +29,11 @@ namespace Ams.Repository.Interfaces
         Task<List<GraphicsDto>> GetTotalIncomeAsync();
         Task<List<GraphicsDto>> GetTotalExpensesAsync();
         Task<List<GraphicsDto>> GetIncGraphAsync();
+        Task<List<IncomeExpensesReportDto>> GetTotalIAsync(DateTime? fromDate, DateTime? toDate);
+        Task<List<IncomeExpensesReportDto>> GetTotalEAsync(DateTime? fromDate, DateTime? toDate);
+        Task<List<IncomeExpensesReportDto>> GetTotalPayAsync(DateTime? fromDate, DateTime? toDate);
+        Task<List<IncomeExpensesReportDto>> GetTotalRecAsync(DateTime? fromDate, DateTime? toDate);
+      
 
 
 

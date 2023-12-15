@@ -38,5 +38,10 @@ namespace Ams.ViewModels
         public List<GraphicsDto> TotalIncome { get; set; }
         public List<GraphicsDto> TotalExpenses { get; set; }
         public List<GraphicsDto> IncGraph { get; set; }
+
+        public List<IncomeExpensesReportDto> Tincome { get; set; }
+        public List<IncomeExpensesReportDto> Texpenses { get; set; }
+        public List<IncomeExpensesReportDto> Tpayable { get; set; }
+        public List<IncomeExpensesReportDto> Treceivable { get; set; }
         }
 }

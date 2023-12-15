@@ -26,7 +26,10 @@ namespace Ams.Controllers
                 ExpenseReports = await _reportsRepo.GetExpenseReportsAsync(fromDate, toDate),
                 CashBanks = await _reportsRepo.GetCashBanksAsync( fromDate,toDate),
                 cashBanks = await _reportsRepo.GetBanksAsync(fromDate, toDate),
-                
+                Tincome = await _reportsRepo.GetTotalIAsync(fromDate, toDate),
+                Texpenses = await _reportsRepo.GetTotalEAsync(fromDate,toDate),
+              
+
             };
             return View(vm);
         }
@@ -104,6 +107,8 @@ namespace Ams.Controllers
             {
                 payableReports = await _reportsRepo.GetRemainingPayableAsync(fromDate, toDate),
                 receivableReports = await _reportsRepo.GetRemainingReceivableAsync(fromDate, toDate),
+                Tpayable = await _reportsRepo.GetTotalPayAsync(fromDate, toDate),
+                Treceivable = await _reportsRepo.GetTotalRecAsync(fromDate, toDate),
             };
             return View(vm);
         }

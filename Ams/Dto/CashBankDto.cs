@@ -12,6 +12,8 @@
         public decimal dr_amount { get; set; }
         public decimal cr_amount { get; set; }
         public string type { get; set; }
+        public decimal total_income { get; set; }   
+        public decimal total_expenses { get; set; }
 
 
 
