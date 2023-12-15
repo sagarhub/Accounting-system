@@ -34,5 +34,9 @@ namespace Ams.ViewModels
         public List<PaymentReportDto> currentpmt { get; set; }
         public List<ReceiptReportDto> currentrcpt { get; set; }
         public List<CashBankDto> currentCash { get; set; }  
+        public List<GraphicsDto> ExpGraph { get; set; }
+        public List<GraphicsDto> TotalIncome { get; set; }
+        public List<GraphicsDto> TotalExpenses { get; set; }
+        public List<GraphicsDto> IncGraph { get; set; }
         }
 }

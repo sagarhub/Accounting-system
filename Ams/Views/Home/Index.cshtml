@@ -93,8 +93,14 @@
         <canvas id="chart4"></canvas>
         </div>
          <div class="card" style="width:50%;  margin-left:1%; margin-top:2%;">
-        <h6 style="text-align: center; font-weight:bold; margin-top:2%;" class="card-title">Income & Expenses</h6>
+        <h6 style="text-align: center; font-weight:bold; margin-top:2%;" class="card-title">Monthly Expenses</h6>
         <canvas id="chart1"></canvas>
+        </div>
+    </div>
+    <div>
+        <div class="card" style="width:50%;  margin-left:1%; margin-top:2%;">
+            <h6 style="text-align: center; font-weight:bold; margin-top:2%;" class="card-title">Monthly Income</h6>
+            <canvas id="chart2"></canvas>
         </div>
     </div>
     </div>
@@ -105,17 +111,37 @@
     document.addEventListener('DOMContentLoaded', function () {
         createChart4();
         createChart1();
+        createChart2();
+
     });
 
     function createChart4() {
+    @{
+        // Initialize arrays for labels and dataValues
+        var dataValue1 = new List<decimal>();
+        var dataValue2 = new List<decimal>();
+
+        // Populate labels and dataValues from Model.ExpGraph
+        foreach (var item in Model.TotalExpenses)
+        {
+            dataValue1.Add(@item.total_expenses);
+        }
+        foreach (var item in Model.TotalIncome)
+        {
+            dataValue2.Add(@item.total_income);
+        }
+    }
+
         var data = {
             labels: ['Expenses', 'Income'],
-            datasets: [{
-                label: 'Transaction Count',
-                data: [1, 4],
-                backgroundColor: ['rgb(255, 99, 132)', 'rgb(50,205,50)'],
-                hoverOffset: 4
-            }]
+            datasets: [
+                {
+                    label: 'Expenses',
+                    data: @Html.Raw(Json.Serialize(new List<List<decimal>> { dataValue1, dataValue2 })),
+                    backgroundColor: ['rgb(255, 99, 132)', 'rgb(50,205,50)'],
+                    hoverOffset: 4
+                }
+            ]
         };
 
         const config = {
@@ -130,30 +156,78 @@
         var chart4 = new Chart(ctx, config);
     }
 
-    function createChart1() {
-        var labels = ['January', 'February', 'March', 'April', 'May'];
-        var data = {
-            labels: labels,
+    function createChart1()
+    {
+    @{
+        // Initialize arrays for labels and dataValues
+        var labels = new List<string>();
+        var dataValues = new List<decimal>();
+
+        // Populate labels and dataValues from Model.ExpGraph
+        foreach (var item in Model.ExpGraph)
+        {
+            labels.Add(@item.month_name);
+            dataValues.Add(@item.amount);
+        }
+    }
+            var data = {
+        labels: @Html.Raw(Json.Serialize(labels)),
+        datasets: [{
+            label: 'Monthly Expenses',
+            data: @Html.Raw(Json.Serialize(dataValues)),
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 2,
+            fill: false
+        }]
+    };
+
+    // Configuration options
+    var config = {
+        type: 'line',
+        data: data,
+    };
+
+   
+    var ctx2 = document.getElementById('chart1').getContext('2d');
+
+
+    var chart1 = new Chart(ctx2, config);
+    }
+    function createChart2() {
+    @{
+        // Initialize arrays for labels and dataValues
+        var Ilabels = new List<string>();
+        var IdataValues = new List<decimal>();
+
+        // Populate labels and dataValues from Model.ExpGraph
+        foreach (var item in Model.IncGraph)
+        {
+            Ilabels.Add(@item.month_name);
+            IdataValues.Add(@item.amount);
+        }
+    }
+                var data = {
+            labels: @Html.Raw(Json.Serialize(Ilabels)),
             datasets: [{
-                label: 'Monthly Sales',
-                data: [50, 120, 200, 80, 150],
-                borderColor: 'rgba(75, 192, 192, 1)', // Line color
-                borderWidth: 2, // Line width
-                fill: false // Do not fill the area under the line
+                label: 'Monthly Expenses',
+                data: @Html.Raw(Json.Serialize(IdataValues)),
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2,
+                fill: false
             }]
         };
 
         // Configuration options
-        const config = {
+        var config = {
             type: 'line',
             data: data,
         };
 
-        // Get the canvas element
-        const ctx2 = document.getElementById('chart1').getContext('2d');
 
-        // Create the line chart
-        var chart1 = new Chart(ctx2, config);
+        var ctx3 = document.getElementById('chart2').getContext('2d');
+
+
+        var chart2 = new Chart(ctx3, config);
     }
 </script>
 

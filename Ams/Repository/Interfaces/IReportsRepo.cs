@@ -25,7 +25,10 @@ namespace Ams.Repository.Interfaces
         Task<List<PaymentReportDto>> GetCurrentPayment();
         Task<List<ReceiptReportDto>> GetCurrentReceipt();
         Task<List<CashBankDto>> GetRemCashAsync();
-
+        Task<List<GraphicsDto>> GetExpGraphAsync();
+        Task<List<GraphicsDto>> GetTotalIncomeAsync();
+        Task<List<GraphicsDto>> GetTotalExpensesAsync();
+        Task<List<GraphicsDto>> GetIncGraphAsync();
 
 
 

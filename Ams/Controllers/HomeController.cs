@@ -27,6 +27,10 @@ namespace Ams.Controllers
                 currentpmt = await _reportsRepo.GetCurrentPayment(),
                 currentrcpt = await _reportsRepo.GetCurrentReceipt(),
                 currentCash = await _reportsRepo.GetRemCashAsync(),
+                ExpGraph = await _reportsRepo.GetExpGraphAsync(),
+                TotalExpenses = await _reportsRepo.GetTotalExpensesAsync(),
+                TotalIncome = await _reportsRepo.GetTotalIncomeAsync(),
+                IncGraph  = await _reportsRepo.GetIncGraphAsync(),
                 
             };
             return View(vm);

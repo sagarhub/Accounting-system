@@ -277,5 +277,78 @@ FROM
             return (await conn.QueryAsync<CashBankDto>(Remcash)).ToList();
         }
 
+        public async Task<List<GraphicsDto>> GetExpGraphAsync()
+        {
+            using var conn = connectionProvider.GetConnection();
+            var ExpGraphQuery = @"SELECT
+    EXTRACT(YEAR FROM date) AS year,
+    EXTRACT(MONTH FROM date) AS month,
+    CASE 
+        WHEN EXTRACT(MONTH FROM date) = 1 THEN 'January'
+        WHEN EXTRACT(MONTH FROM date) = 2 THEN 'February'
+        WHEN EXTRACT(MONTH FROM date) = 3 THEN 'March'
+        WHEN EXTRACT(MONTH FROM date) = 4 THEN 'April'
+        WHEN EXTRACT(MONTH FROM date) = 5 THEN 'May'
+        WHEN EXTRACT(MONTH FROM date) = 6 THEN 'June'
+        WHEN EXTRACT(MONTH FROM date) = 7 THEN 'July'
+        WHEN EXTRACT(MONTH FROM date) = 8 THEN 'August'
+        WHEN EXTRACT(MONTH FROM date) = 9 THEN 'September'
+        WHEN EXTRACT(MONTH FROM date) = 10 THEN 'October'
+        WHEN EXTRACT(MONTH FROM date) = 11 THEN 'November'
+        WHEN EXTRACT(MONTH FROM date) = 12 THEN 'December'
+    END AS month_name,
+    SUM(amount) AS amount
+FROM
+    ""Expenses"" e 
+GROUP BY
+    EXTRACT(YEAR FROM date),
+    EXTRACT(MONTH FROM date)
+ORDER BY
+    EXTRACT(YEAR FROM date), EXTRACT(MONTH FROM date)";
+            return (await conn.QueryAsync<GraphicsDto>(ExpGraphQuery)).ToList();
+        }
+        public async Task<List<GraphicsDto>> GetTotalIncomeAsync()
+        {
+            using var conn = connectionProvider.GetConnection();
+            var TotalIncomeQuery = @"    select sum(amount) as total_income from income i ";
+            return(await conn.QueryAsync<GraphicsDto>(TotalIncomeQuery)).ToList();
+        }
+        public async Task<List<GraphicsDto>> GetTotalExpensesAsync()
+        {
+            using var conn = connectionProvider.GetConnection();
+            var TotalExpensesQuery = @"    select sum(amount) as total_expenses from ""Expenses"" e ";
+            return (await conn.QueryAsync<GraphicsDto>(TotalExpensesQuery)).ToList();
+        }
+        public async Task<List<GraphicsDto>> GetIncGraphAsync()
+        {
+            using var conn = connectionProvider.GetConnection();
+            var IncGraphQuery = @"SELECT
+    EXTRACT(YEAR FROM date) AS year,
+    EXTRACT(MONTH FROM date) AS month,
+    CASE 
+        WHEN EXTRACT(MONTH FROM date) = 1 THEN 'January'
+        WHEN EXTRACT(MONTH FROM date) = 2 THEN 'February'
+        WHEN EXTRACT(MONTH FROM date) = 3 THEN 'March'
+        WHEN EXTRACT(MONTH FROM date) = 4 THEN 'April'
+        WHEN EXTRACT(MONTH FROM date) = 5 THEN 'May'
+        WHEN EXTRACT(MONTH FROM date) = 6 THEN 'June'
+        WHEN EXTRACT(MONTH FROM date) = 7 THEN 'July'
+        WHEN EXTRACT(MONTH FROM date) = 8 THEN 'August'
+        WHEN EXTRACT(MONTH FROM date) = 9 THEN 'September'
+        WHEN EXTRACT(MONTH FROM date) = 10 THEN 'October'
+        WHEN EXTRACT(MONTH FROM date) = 11 THEN 'November'
+        WHEN EXTRACT(MONTH FROM date) = 12 THEN 'December'
+    END AS month_name,
+    SUM(amount) AS amount
+FROM
+    ""income"" i
+GROUP BY
+    EXTRACT(YEAR FROM date),
+    EXTRACT(MONTH FROM date)
+ORDER BY
+    EXTRACT(YEAR FROM date), EXTRACT(MONTH FROM date)";
+            return (await conn.QueryAsync<GraphicsDto>(IncGraphQuery)).ToList();
+        }
+
     }
 }
