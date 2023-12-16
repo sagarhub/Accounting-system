@@ -1,0 +1,54 @@
+﻿@model Ams.ViewModels.IncomeExpensesReportVm
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form method="get" style="margin-top:2%;">
+<div style="margin:auto; width:98%; ">
+
+
+<h3 style="text-align:center">Ledger Details</h3>
+
+
+<table class="table table-bordered table-striped table-hover table-sn ">
+    <thead>
+        <tr class="table-primary">
+            <th>
+                Ledger name
+            </th>
+            <th>
+                Code
+            </th>
+            <th>
+                Sub Group
+            </th>
+            <th>
+                Description
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.LedgerReport)
+        {
+            <tr>
+                <td>
+                    @item.ledger_name
+                </td>
+                <td>
+                    @item.code
+                  </td>
+                <td>
+                    @item.parent_name
+                </td>
+              
+
+                <td>
+                    @item.Description
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+</form>

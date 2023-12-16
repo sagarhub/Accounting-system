@@ -1,7 +1,7 @@
 ﻿@model Ams.ViewModels.IncomeExpensesReportVm
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Income Report";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     DateTime DefaultDate = DateTime.Now;
@@ -52,9 +52,7 @@
             <th>
                 Remarks
             </th>
-            <th>
-Actions
-</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -79,9 +77,7 @@ Actions
             </td>
 
 
-                <td>
-                    <a class="btn btn-outline-danger btn-sm" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .75rem; border-radius:7px;" asp-action="Delete" asp-route-id="@IncomeReport.Id">Delete</a>
-                </td>
+               
         </tr>
 }
     </tbody>

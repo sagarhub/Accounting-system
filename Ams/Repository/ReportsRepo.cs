@@ -394,5 +394,13 @@ ORDER BY
                 ToDate = toDate
             })).ToList();
         }
+
+        public async Task<List<LedgerDto>> GetLedegrsAsync()
+        {
+            var conn = connectionProvider.GetConnection();
+            var ledgerQuery = @"select l.""Ledger_name"" as ledger_name ,l.code ,pg.""name"" parent_name ,l.""Description""   from ""Ledgers"" l 
+join ""ParentGroups"" pg on l.""Parent_ledgerId"" =pg.id ";
+            return (await conn.QueryAsync<LedgerDto>(ledgerQuery)).ToList();
+        }
     }
 }

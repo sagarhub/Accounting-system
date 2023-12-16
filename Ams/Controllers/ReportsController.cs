@@ -135,6 +135,14 @@ namespace Ams.Controllers
             };
             return View(vm);
         }
+        public async Task<IActionResult> LedgerReport()
+        {
+            var vm = new IncomeExpensesReportVm
+            {
+                LedgerReport = await _reportsRepo.GetLedegrsAsync()
+            };
+            return View(vm);
+        }
         
         
 

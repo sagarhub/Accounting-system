@@ -33,7 +33,9 @@ namespace Ams.Repository.Interfaces
         Task<List<IncomeExpensesReportDto>> GetTotalEAsync(DateTime? fromDate, DateTime? toDate);
         Task<List<IncomeExpensesReportDto>> GetTotalPayAsync(DateTime? fromDate, DateTime? toDate);
         Task<List<IncomeExpensesReportDto>> GetTotalRecAsync(DateTime? fromDate, DateTime? toDate);
-      
+        Task<List<LedgerDto>> GetLedegrsAsync();
+
+
 
 
 

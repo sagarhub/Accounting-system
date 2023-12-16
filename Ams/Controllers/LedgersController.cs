@@ -58,7 +58,7 @@ namespace Ams.Controllers
                 tx.Complete();
 
                 }
-            return RedirectToAction("Index");
+            return RedirectToAction("Reports" ,"LedgerReport");
 
            
             

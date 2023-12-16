@@ -1,7 +1,7 @@
 ﻿@model Ams.ViewModels.IncomeExpensesReportVm
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Receipt Report";
     Layout = "~/Views/Shared/_Layout.cshtml";
     DateTime DefaultDate = DateTime.Today;
 
@@ -56,9 +56,7 @@
 
                 Remarks
             </th>
-            <th>
-                Actions
-            </th>
+           
         </tr>
 
     <tbody>
@@ -82,9 +80,7 @@
                         @Html.DisplayFor(modelItem => item.remarks)
                 </td>
 
-                <td>
-                    <a class="btn btn-outline-danger btn-sm" style="--bs-btn-padding-y: .10rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .75rem; border-radius:7px;" asp-action="Delete" asp-route-id="">Delete</a>
-                </td>
+               
             </tr>
             }
     </tbody>

@@ -43,5 +43,6 @@ namespace Ams.ViewModels
         public List<IncomeExpensesReportDto> Texpenses { get; set; }
         public List<IncomeExpensesReportDto> Tpayable { get; set; }
         public List<IncomeExpensesReportDto> Treceivable { get; set; }
+        public List<LedgerDto> LedgerReport { get; set; }
         }
 }
