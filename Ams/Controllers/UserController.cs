@@ -42,8 +42,6 @@ namespace Ams.Controllers
 
                     var user = new User
                     {
-
-
                         Name = vm.Name,
                         Last_name = vm.Last_name,
                         Email = vm.Email,
