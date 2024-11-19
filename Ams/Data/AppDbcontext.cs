@@ -57,6 +57,5 @@ namespace Ams.Data
                     code = 4
                 });
         }
-        
     }
 }
