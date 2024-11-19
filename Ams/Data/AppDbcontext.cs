@@ -29,5 +29,34 @@ namespace Ams.Data
         public DbSet<Payment> payments { get; set; }
         public DbSet<Receipt> receipts { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ParentGroup>().HasData(
+                new ParentGroup
+                {
+                    id = 1,
+                    name = "Assets",
+                    code = 1
+                },
+                new ParentGroup
+                {
+                    id = 2,
+                    name = "Liabilities",
+                    code = 2
+                },
+                new ParentGroup
+                {
+                    id = 3,
+                    name = "Income",
+                    code = 3
+                },
+                new ParentGroup
+                {
+                    id = 4,
+                    name = "Expenses",
+                    code = 4
+                });
+        }
+        
     }
 }

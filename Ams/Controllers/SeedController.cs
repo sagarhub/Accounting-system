@@ -41,5 +41,6 @@ namespace Ams.Controllers
             await context.SaveChangesAsync();
             return "Admin user seeding complete";
         }
+        
     }
 }

@@ -3,3 +3,4 @@ bin/
 .vs/
 
 appsettings.Development.json
+Ams.csproj
