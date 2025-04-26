@@ -57,8 +57,8 @@ namespace Ams.Controllers
                    await _context.SaveChangesAsync();
                 tx.Complete();
 
-                }
-            return RedirectToAction("Reports" ,"LedgerReport");
+            }
+            return RedirectToAction("LedgerReport" ,"Reports");
 
            
             

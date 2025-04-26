@@ -140,7 +140,8 @@ namespace Ams.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("PayableReport","Reports");
+
             }
             return View(payable);
         }
@@ -179,7 +180,7 @@ namespace Ams.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("PayableReport","Reports");
         }
 
         private bool PayableExists(int id)

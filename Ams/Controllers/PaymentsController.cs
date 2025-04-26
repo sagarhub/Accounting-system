@@ -181,7 +181,7 @@ namespace Ams.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("PaymentReport", "Reports");
         }
 
         private bool PaymentExists(int id)

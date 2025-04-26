@@ -140,7 +140,7 @@ namespace Ams.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("ReceivableReport","Reports");
             }
             return View(receivable);
         }
@@ -179,7 +179,7 @@ namespace Ams.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("ReceivableReport","Reports");
         }
 
         private bool ReceivableExists(int id)

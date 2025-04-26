@@ -17,10 +17,8 @@ namespace Ams.Migrations
                 columns: new[] { "id", "code", "name" },
                 values: new object[,]
                 {
-                    { 1, 1, "Assets" },
-                    { 2, 2, "Liabilities" },
-                    { 3, 3, "Income" },
-                    { 4, 4, "Expenses" }
+                    { 1, 1, "Incomr" },
+                    { 2, 2, "Expenses" },
                 });
         }
 

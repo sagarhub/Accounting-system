@@ -101,7 +101,7 @@ namespace Ams.Controllers
                 return NotFound();
             }
 
-            return View(bank);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -144,7 +144,7 @@ namespace Ams.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("IncomeReport","Reports");
             }
             return View(income);
         }
@@ -183,7 +183,7 @@ namespace Ams.Controllers
             }
             
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("IncomeReport","Reports");
         }
 
         private bool IncomeExists(int id)
